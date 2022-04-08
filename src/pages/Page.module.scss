@@ -1,0 +1,12 @@
+@import "./../styles/variables.scss";
+
+.page{
+height: 100px;
+@include d-flex(center, center);
+&__title{
+    font-size: 36px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: $firstColor;
+}
+}

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../Form/SearchArea.module.scss"
+    ],
+    "names": [],
+    "file": "SearchArea.module.css"
+}

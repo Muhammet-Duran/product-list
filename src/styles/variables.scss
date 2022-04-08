@@ -1,0 +1,42 @@
+//fonts
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,700&display=swap");
+
+$lato: "Lato", sans-serif;
+
+$headerHeight:86px;
+
+$headerColor: #0071dc;
+$bodyColor: #262626;
+$firstColor:#ffc220;
+$white: #ffffff;
+$black:#000000;
+
+$greyColor: darkslategrey;
+
+$borderRadius: 4px;
+$letterSpace:.4px;
+$boxShadow:rgba(0, 0, 0, 0.15) 0px 1px 2px 1px;
+//Mixin
+@mixin d-flex($align, $justify){
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+// breakpoints
+@mixin breakpoint($point) {
+  @if $point == lg {
+    @media (min-width: 992px) {
+      @content;
+    }
+  } @else if $point == md-only {
+    @media (max-width: 991px) {
+      @content;
+    }
+  } @else if $point == sm-only {
+    @media (max-width: 576px) {
+      @content;
+    }
+  }
+}
+

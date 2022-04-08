@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../ProductCard/ProductCard.module.scss"
+    ],
+    "names": [],
+    "file": "ProductCard.module.css"
+}

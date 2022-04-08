@@ -1,0 +1,59 @@
+@import "./../../styles/variables.scss";
+
+.header_wrapper{
+    height: $headerHeight;
+    background-color: $headerColor;
+    &__container{
+        height: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        max-width: 1800px;
+        margin: 0 auto;
+        @include d-flex(center, space-between);
+        &__logo{
+            padding: 0px 10px 8px;
+            cursor: pointer;
+            .firstly{
+                color: $firstColor;
+                display:inline-block;
+                font-size: 40px;
+                transform: rotate(-30deg);
+                font-weight:700;
+                padding-right: 8px;
+
+            }
+            .others{
+                color:$white;
+                display: inline-block;
+                font-size: 30px;
+                font-weight: 600;
+                text-decoration: underline;
+            }
+        }
+        &__cart{
+            cursor: pointer;
+            position: relative;
+            padding: 8px 10px;
+            &__icon{
+                color: $white;
+                font-size: 24px;
+            }
+            &__count{
+                position: absolute;
+                right: 4px;
+                top:6px;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                background-color: $firstColor;
+                color: $black;
+                font-size: 11px;
+                font-weight: 600;
+                text-align: center;
+                line-height: 15px;
+                border:1px solid #B22222;
+
+            }
+        }
+    }
+}
