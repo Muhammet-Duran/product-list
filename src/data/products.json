@@ -1,0 +1,172 @@
+[
+  {
+    "productId": "41f8d6c4-3073-439b-af9f-d8a56e1647d3",
+    "title": "Apple iPhone 11",
+    "brand": "apple",
+    "createdDate": "2021-07-09T15:06:20.077Z",
+    "color": "yellow",
+    "price": "225,27",
+    "discount": 78,
+    "imgUrl": "/assets/product-images/image-1.png"
+  },
+  {
+    "productId": "e41df3bc-6667-4506-9ec6-71bea3e45997",
+    "title": "Apple iPhone 11 Pro",
+    "brand": "apple",
+    "createdDate": "2022-01-22T02:10:54.856Z",
+    "color": "indigo",
+    "price": "35,51",
+    "discount": 30,
+    "imgUrl": "/assets/product-images/image-2.png"
+  },
+  {
+    "productId": "cca845f7-46cc-49d4-b307-ceab531a7fbd",
+    "title": "Apple iPhone 11 Pro Max (64GB)",
+    "brand": "apple",
+    "createdDate": "2021-11-25T04:19:12.474Z",
+    "color": "blue",
+    "price": "758,33",
+    "discount": 100,
+    "imgUrl": "/assets/product-images/image-4.png"
+  },
+  {
+    "productId": "e642e137-8fdc-4972-a3aa-fc8ea52661aa",
+    "title": "Apple iPhone 11 Pro Max",
+    "brand": "apple",
+    "createdDate": "2021-07-09T12:41:28.182Z",
+    "color": "salmon",
+    "price": "722,94",
+    "discount": 4,
+    "imgUrl": "/assets/product-images/image-1.png"
+  },
+  {
+    "productId": "d0aabe7d-bfea-4285-8b63-649b0a1b3a59",
+    "title": "Samsung Galaxy s10",
+    "brand": "samsung",
+    "createdDate": "2021-04-19T17:53:19.876Z",
+    "color": "grey",
+    "price": "482,48",
+    "discount": 80,
+    "imgUrl": "/assets/product-images/image-3.png"
+  },
+  {
+    "productId": "e2a81209-3d70-4d45-9a3b-57eb80f8add4",
+    "title": "samsung Galaxy s20",
+    "brand": "samsung",
+    "createdDate": "2021-10-13T03:46:09.521Z",
+    "color": "pink",
+    "price": "120,70",
+    "discount": 100,
+    "imgUrl": "/assets/product-images/image-1.png"
+  },
+  {
+    "productId": "63b2f46f-e3fd-4ea9-ab09-79663b9308db",
+    "title": "Samsung fold (64GB)",
+    "brand": "samsung",
+    "createdDate": "2022-02-08T08:16:01.104Z",
+    "color": "salmon",
+    "price": "702,31",
+    "discount": 95,
+    "imgUrl": "/assets/product-images/image-2.png"
+  },
+  {
+    "productId": "dfed02d1-7ff4-4c7b-953f-dfe3aa981ee5",
+    "title": "samsung tab",
+    "brand": "samsung",
+    "createdDate": "2021-07-19T20:28:57.327Z",
+    "color": "teal",
+    "price": "429,92",
+    "discount": 39,
+    "imgUrl": "/assets/product-images/image-4.png"
+  },
+  {
+    "productId": "d8e7f657-bf1d-4042-a829-b32c0652cfa7",
+    "title": "samsung s3 gold edition",
+    "brand": "samsung",
+    "createdDate": "2021-09-10T07:00:03.713Z",
+    "color": "salmon",
+    "price": "414,65",
+    "discount": 75,
+    "imgUrl": "/assets/product-images/image-3.png"
+  },
+  {
+    "productId": "2b50effd-7fba-4844-a48d-6f6cfe0c114c",
+    "title": "samsung Rubber 11",
+    "brand": "samsung",
+    "createdDate": "2022-01-03T13:34:33.961Z",
+    "color": "ivory",
+    "price": "955,62",
+    "discount": 50,
+    "imgUrl": "/assets/product-images/image-2.png"
+  },
+  {
+    "productId": "3a879a0a-43bb-4d9c-9b7b-84d93da31bec",
+    "title": "huawei p30",
+    "brand": "huawei",
+    "createdDate": "2021-09-25T15:20:41.237Z",
+    "color": "blue",
+    "price": "492,95",
+    "discount": 39,
+    "imgUrl": "/assets/product-images/image-1.png"
+  },
+  {
+    "productId": "d14bc12e-573d-4393-95e5-c4b24ee00e6a",
+    "title": "huawei p30 pro max ultimate",
+    "brand": "huawei",
+    "createdDate": "2022-01-06T17:12:32.556Z",
+    "color": "plum",
+    "price": "25,19",
+    "discount": 79,
+    "imgUrl": "/assets/product-images/image-4.png"
+  },
+  {
+    "productId": "8676c658-47a1-4a5c-a529-83f17bf172ae",
+    "title": "huawei gold pro max",
+    "brand": "huawei",
+    "createdDate": "2021-05-05T01:10:48.714Z",
+    "color": "gold",
+    "price": "198,42",
+    "discount": 32,
+    "imgUrl": "/assets/product-images/image-3.png"
+  },
+  {
+    "productId": "89ad5c8e-f1f7-47c4-ae82-4a775c10fffc",
+    "title": "huawei p30 pro maroon",
+    "brand": "huawei",
+    "createdDate": "2021-03-24T10:28:12.330Z",
+    "color": "maroon",
+    "price": "278,63",
+    "discount": 18,
+    "imgUrl": "/assets/product-images/image-1.png"
+  },
+  {
+    "productId": "025b665a-e33d-4312-9dd0-61e1565082e7",
+    "title": "huawei ultra pro",
+    "brand": "huawei",
+    "createdDate": "2021-02-22T20:24:00.989Z",
+    "color": "ivory",
+    "price": "606,80",
+    "discount": 42,
+    "imgUrl": "/assets/product-images/image-4.png"
+  },
+  {
+    "productId": "e1f308d5-d52a-4666-8f25-e95ee22f4470",
+    "title": "huawei p10 mini 2",
+    "brand": "huawei",
+    "createdDate": "2021-09-14T06:34:40.799Z",
+    "color": "yellow",
+    "price": "219,33",
+    "discount": 64,
+    "imgUrl": "/assets/product-images/image-2.png"
+  },
+  {
+    "productId": "c18083e8-3d4a-484a-af48-0d3117ca1106",
+    "title": "huawei p30 pro mega",
+    "brand": "huawei",
+    "createdDate": "2021-06-19T18:53:38.447Z",
+    "color": "teal",
+    "price": "663,32",
+    "discount": 63,
+    "imgUrl": "/assets/product-images/image-1.png"
+  }
+]
