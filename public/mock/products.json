@@ -1,0 +1,155 @@
+{"products":
+  [
+    {
+      "productId": "41f8d6c4-3073-439b-af9f-d8a56e1647d3",
+      "title": "Headset Black",
+      "brand": "Sony",
+      "category": "headset",
+      "color": "black",
+      "price": "505,27",
+      "discount": 78,
+      "imgUrl": "/assets/headsetblack.png"
+    },
+    {
+      "productId": "e41df3bc-6667-4506-9ec6-71bea3e45997",
+      "title": "Headset Blue",
+      "brand": "Jbl",
+      "category": "headset",
+      "color": "blue",
+      "price": "400,51",
+      "discount": 30,
+      "imgUrl": "/assets/headsetblue.png"
+    },
+    {
+      "productId": "cca845f7-46cc-49d4-b307-ceab531a7fbd",
+      "title": "Headset Cream",
+      "brand": "Jbl",
+      "category": "headset",
+      "color": "gold",
+      "price": "700,33",
+      "discount": 80,
+      "imgUrl": "/assets/headsetcream.png"
+    },
+    {
+      "productId": "e642e137-8fdc-4972-a3aa-fc8ea52661aa",
+      "title": "Headset Gold",
+      "brand": "Sony",
+      "category": "headset",
+      "color": "cream",
+      "price": "450,94",
+      "discount": 12,
+      "imgUrl": "/assets/headsetgold2.png"
+    },
+    {
+      "productId": "d0aabe7d-bfea-4285-8b63-649b0a1b3a59",
+      "title": "Headset White",
+      "brand": "Samsung",
+      "category": "headset",
+      "color": "white",
+      "price": "800,48",
+      "discount": 80,
+      "imgUrl": "/assets/headsetwhite.png"
+    },
+    {
+      "productId": "e2a81209-3d70-4d45-9a3b-57eb80f8add4",
+      "title": "Huawei White ",
+      "brand": "Huawei",
+      "category": "notebook",
+      "color": "white",
+      "price": "1800,70",
+      "discount": 90,
+      "imgUrl": "/assets/hueweiwhitematebook.png"
+    },
+    {
+      "productId": "63b2f46f-e3fd-4ea9-ab09-79663b9308db",
+      "title": "Asus Silver",
+      "brand": "Asus",
+      "category": "notebook",
+      "color": "silver",
+      "price": "1520,31",
+      "discount": 45,
+      "imgUrl": "/assets/silvernotebook.png"
+    },
+    {
+      "productId": "dfed02d1-7ff4-4c7b-953f-dfe3aa981ee5",
+      "title": "Samsung White",
+      "brand": "Samsung",
+      "category": "notebook",
+      "color": "white",
+      "price": "2000,92",
+      "discount": 39,
+      "imgUrl": "/assets/samsungwhitenote.png"
+    },
+    {
+      "productId": "d8e7f657-bf1d-4042-a829-b32c0652cfa7",
+      "title": "Macbook pro Black",
+      "brand": "Apple",
+      "category": "notebook",
+      "color": "black",
+      "price": "2800,65",
+      "discount": 75,
+      "imgUrl": "/assets/macbookblack.png"
+    },
+    {
+      "productId": "2b50effd-7fba-4844-a48d-6f6cfe0c114c",
+      "title": "Macbook pro Gold",
+      "brand": "Apple",
+      "category": "notebook",
+      "color": "ivory",
+      "price": "2500,62",
+      "discount": 50,
+      "imgUrl": "/assets/macbookgold.png"
+    },
+    {
+      "productId": "3a879a0a-43bb-4d9c-9b7b-84d93da31bec",
+      "title": "Samsung Pink",
+      "brand": "Samsung",
+      "category": "phone",
+      "color": "pink",
+      "price": "1750,95",
+      "discount": 39,
+      "imgUrl": "/assets/phonepink.png"
+    },
+    {
+      "productId": "d14bc12e-573d-4393-95e5-c4b24ee00e6a",
+      "title": "samsung blue",
+      "brand": "Samsung",
+      "category": "phone",
+      "color": "blue",
+      "price": "1600,19",
+      "discount": 79,
+      "imgUrl": "/assets/phoneblue.png"
+    },
+    {
+      "productId": "8676c658-47a1-4a5c-a529-83f17bf172ae",
+      "title": "huawei White",
+      "brand": "Huawei",
+      "category": "phone",
+      "color": "blue",
+      "price": "1270,42",
+      "discount": 32,
+      "imgUrl": "/assets/phonewhite.png"
+    },
+    {
+      "productId": "89ad5c8e-f1f7-47c4-ae82-4a775c10fffc",
+      "title": "Iphone Black",
+      "brand": "Apple",
+      "category": "phone",
+      "color": "black",
+      "price": "4000,63",
+      "discount": 18,
+      "imgUrl": "/assets/phoneblack.png"
+    },
+    {
+      "productId": "025b665a-e33d-4312-9dd0-61e1565082e7",
+      "title": "Iphone Gold",
+      "brand": "Apple",
+      "category": "phone",
+      "color": "gold",
+      "price": "3750,80",
+      "discount": 42,
+      "imgUrl": "/assets/phonegold.png"
+    }
+    
+  ]
+}

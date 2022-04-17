@@ -1,0 +1,80 @@
+@import "./../../styles/variables.scss";
+.product_card{
+    border:1px solid $borderColor;
+    cursor: pointer;
+    position: relative;
+    // border: 1px solid red;
+    // @include d-flex(stretch,center);
+    // flex-direction: column;
+    padding: 10px 20px;
+    border-radius: $borderRadius;
+    transition: all .3s linear;
+    
+    
+    &__img_area{
+        width: 200px;
+        height: 224px;
+        margin: 0 auto;
+        @include d-flex(center,center); 
+
+        &__img{
+            height: 100%;
+            object-fit:cover;
+            display: block;
+        }
+    }
+    &__details{
+        margin-top: $mt;
+        @include d-flex(center,space-between);
+        padding-left: 12px;
+        padding-right: 12px;
+        &__info{
+            
+            &__product_name{
+                font-size: 15px;
+                font-weight: 700;
+                color: $textColor;
+            }
+            &__product_title{
+                margin-top:4px;
+                font-size: 13px;
+                span{
+                    color:$black;
+                    font-weight: 700;
+                }
+            }
+        }
+        &__price{
+            @include d-flex(flex-start,center); 
+            flex-direction:column;
+            span{
+                font-size: 14px;
+                display: inline-block;
+            }
+            &__old_price{
+                text-decoration: line-through;
+                color:lighten($black, 50%);
+                font-weight: 500;
+            }
+            &__first_area{
+                color:lighten($black, 30%);
+                font-weight: 600;
+                margin-top:4px;
+                &__percent{
+                    margin-left: 6px;
+                }
+            }
+
+        }
+        
+
+    }
+   
+    &:hover{
+        box-shadow:$boxShadow;
+        border-color: transparent;
+        .btn_primary:hover{
+            background-color:$headerColor;
+        }
+    }
+}

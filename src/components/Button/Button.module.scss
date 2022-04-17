@@ -1,0 +1,34 @@
+@import "./../../styles/variables.scss";
+.product_btn{
+    font-family: inherit;
+    border: none;
+    outline: none;
+    padding: 0;
+    background-color: transparent;
+    border:none;
+    cursor: pointer;
+    transition: all .3s ;
+}
+.add_btn{
+    margin-top: $mt;
+    margin-bottom:$mt;
+    border-radius: $borderRadius;
+    background-color:lighten($headerColor, 20%);
+    color: $white;
+    padding:12px 0;
+    width: 100%;
+    
+
+}
+.grid_btn{
+    padding:4px 6px;
+    font-size: 14px;
+    border-bottom: 1px solid transparent;
+    font-weight: 600;
+    color:$black;
+    
+}
+.filter_btn{
+    padding: 4px 6px;
+    transition: none;
+}

@@ -6,16 +6,18 @@ $lato: "Lato", sans-serif;
 $headerHeight:86px;
 
 $headerColor: #0071dc;
-$bodyColor: #262626;
+$bodyColor: #FFFAFA;
 $firstColor:#ffc220;
 $white: #ffffff;
 $black:#000000;
-
+$textColor:#3498db;
 $greyColor: darkslategrey;
-
+$borderColor:#d7dddb;
 $borderRadius: 4px;
 $letterSpace:.4px;
-$boxShadow:rgba(0, 0, 0, 0.15) 0px 1px 2px 1px;
+$boxShadow:rgba(0, 0, 0, 0.15) 0px 3px 14px 2px;
+
+$mt:12px;
 //Mixin
 @mixin d-flex($align, $justify){
   display: flex;

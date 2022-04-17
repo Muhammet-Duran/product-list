@@ -1,0 +1,19 @@
+@import "./../../styles/variables.scss";
+.sidebar{
+    // background-color: coral;
+    width: 200px;
+    // height: 400px;
+    margin-left: 25px;
+    margin-top: 24px;
+    border-radius:$borderRadius;
+    border: 1px solid $borderColor;
+   
+    padding: 40px 20px 20px 30px;
+    &__filter_title{
+        font-size: 14px;
+        font-weight: 600;
+        padding-left: 4px;
+        margin-bottom: 12px;
+        color: lighten($black, 16%);
+    }
+}

@@ -4,10 +4,17 @@
 body {
   width: 100%;
   font-family: $lato;
-  background-color: $bodyColor;
+  background-color:$white;
   height: 100%;
  
 }
 #root {
   height: 100%;
+}
+.container{
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
 }

@@ -1,0 +1,12 @@
+@import "./../../../styles/variables.scss";
+.list{
+    margin-top: 12px;
+    margin-bottom: 20px;
+    &__item{
+        margin-bottom:4px;
+        .btn_filter:hover{
+            color: $textColor;
+        }
+    }
+    
+}

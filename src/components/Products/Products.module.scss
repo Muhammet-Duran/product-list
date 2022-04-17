@@ -1,0 +1,24 @@
+@import "./../../styles/variables.scss";
+
+.productlist{
+    padding-left: 10px;
+    padding-right: 10px;
+    display: grid;
+    grid-auto-rows: auto;
+    gap:20px;
+    margin-top: 20px;
+    max-width: 1360px;
+    margin-left:20px;
+    width: 100%;
+    &.col_3{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    &.col_4{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    &.col_5{
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+}
+
