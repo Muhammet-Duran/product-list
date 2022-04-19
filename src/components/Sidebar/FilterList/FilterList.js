@@ -1,24 +1,18 @@
 import React from "react";
 import styles from "./FilterList.module.scss";
 import Button from "../../Button/Button";
-const FilterList = () => {
+import { useProductContext } from "../../../contexts/ProductContext";
+const FilterList = ({ filterTitle }) => {
+  const {handleFilter} = useProductContext();
   return (
     <ul className={styles.list}>
-      <li className={styles.list__item}>
-        <Button preferences="filter_btn" classNames={styles.btn_filter}>
-          Notebook
-        </Button>
-      </li>
-      <li className={styles.list__item}>
-        <Button preferences="filter_btn" classNames={styles.btn_filter}>
-          Phone
-        </Button>
-      </li>
-      <li className={styles.list__item}>
-        <Button preferences="filter_btn" classNames={styles.btn_filter}>
-          Headset
-        </Button>
-      </li>
+      {filterTitle?.map((title, index) => (
+        <li key={index} className={styles.list__item}>
+          <Button preferences="filter_btn" classNames={styles.btn_filter} onClick={()=>handleFilter(title)}>
+            {title}
+          </Button>
+        </li>
+      ))}
     </ul>
   );
 };

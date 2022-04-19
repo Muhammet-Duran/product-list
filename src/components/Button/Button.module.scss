@@ -9,7 +9,7 @@
     cursor: pointer;
     transition: all .3s ;
 }
-.add_btn{
+.act_btn{
     margin-top: $mt;
     margin-bottom:$mt;
     border-radius: $borderRadius;
@@ -17,6 +17,9 @@
     color: $white;
     padding:12px 0;
     width: 100%;
+    &:hover{
+        background-color:$headerColor;
+    }
     
 
 }
@@ -31,4 +34,18 @@
 .filter_btn{
     padding: 4px 6px;
     transition: none;
+}
+.count_btn{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border:1px solid $textColor;
+    font-size: 24px;
+    font-weight: 400;
+    color: $textColor;
+    @include d-flex(center,center);
+    &:hover{
+        background-color: $textColor;
+        color: $white;
+    }
 }

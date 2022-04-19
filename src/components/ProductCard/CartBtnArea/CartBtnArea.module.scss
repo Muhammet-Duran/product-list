@@ -1,0 +1,22 @@
+@import "./../../../styles/variables.scss";
+.cartbtn_area{
+    flex:1;
+    margin-left: auto;
+    @include d-flex(center, space-evenly);
+    .delete_btn{
+        width: 80px;
+    }
+    .count_area{
+        @include d-flex(center,space-between);
+        flex-direction: column;
+        .piece{
+            display: inline-block;
+            padding: 6px;
+            margin-top: 4px;
+            margin-bottom: 4px;
+            font-size: 14px;
+            font-weight: 400;
+            color: $black;
+        }
+    }
+}

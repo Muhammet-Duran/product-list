@@ -3,14 +3,29 @@
     border:1px solid $borderColor;
     cursor: pointer;
     position: relative;
-    // border: 1px solid red;
-    // @include d-flex(stretch,center);
-    // flex-direction: column;
     padding: 10px 20px;
     border-radius: $borderRadius;
     transition: all .3s linear;
-    
-    
+    &.flex_row{
+        
+        @include d-flex(center, flex-start);
+        &:hover{
+            box-shadow: none;
+            border-color: $borderColor;
+        }
+        .product_card__img_area{
+            margin: 0;
+        }
+        .cart_btn{
+            flex: 1;
+        }
+        .product_card__details{
+            flex-direction: column;
+            &__price{
+                margin-top: 12px;
+            }
+        }
+    }
     &__img_area{
         width: 200px;
         height: 224px;
@@ -48,7 +63,7 @@
             @include d-flex(flex-start,center); 
             flex-direction:column;
             span{
-                font-size: 14px;
+                font-size: 16px;
                 display: inline-block;
             }
             &__old_price{
@@ -62,6 +77,9 @@
                 margin-top:4px;
                 &__percent{
                     margin-left: 6px;
+                    color: crimson;
+                    border:1px solid crimson;
+                    padding: 2px;
                 }
             }
 
@@ -73,8 +91,21 @@
     &:hover{
         box-shadow:$boxShadow;
         border-color: transparent;
-        .btn_primary:hover{
-            background-color:$headerColor;
+       
+    }
+    .piece_area{
+        position: absolute;
+        top:20px;
+        right:54px;
+        font-size: 16px;
+        color: $textColor;
+        span{
+            color: $black;
+            font-size: 14px;
+        }
+        &.sum_price{
+            top: auto;
+            bottom: 20px;
         }
     }
 }

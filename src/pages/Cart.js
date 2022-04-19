@@ -1,16 +1,19 @@
-import React, { useState } from "react";
-// import styles from "./Page.module.scss";
+import React from "react";
+import styles from "./Page.module.scss";
 import Products from "../components/Products/Products";
 import { useProductContext } from "../contexts/ProductContext";
 
 const Cart = () => {
-  const { cartList } = useProductContext();
+  const { cartList, totalCartCost } = useProductContext();
 
-  // const [isCart, setIsCart]= useState(true);
+  
 
   return (
     <div className="container">
-      <Products products={cartList} preferences="col_4" />
+      <div className={styles.total_price}>
+        <span>TOTAL COST : {totalCartCost} &#8378;</span>
+      </div>
+      <Products products={cartList} isCart preferences="col_2" />
     </div>
   );
 };

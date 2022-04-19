@@ -25,3 +25,9 @@ height: 100px;
     }
     
 }
+.total_price{
+    @include d-flex(center, flex-end);
+    text-decoration: underline;
+    margin-top: 12px;
+    color: $textColor;
+}

@@ -1,17 +1,22 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styles from "./ProductCard.module.scss";
+import cn from "classnames";
 import Button from "../Button/Button";
+import CartBtnArea from "./CartBtnArea/CartBtnArea";
+import { discountPrice } from "../Helpers/discountPrice";
 import { useProductContext } from "../../contexts/ProductContext";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, isCart }) => {
   const { addToCart } = useProductContext();
-  const newPrice = parseInt(product.price) * ((100 - product.discount) / 100);
+  // const newPrice = parseInt(product.price) * ((100 - product.discount) / 100);
 
-  const handleAddProduct = () => {
-    addToCart(product);
-  };
   return (
-    <li className={styles.product_card}>
+    <li
+      className={cn(
+        styles.product_card,
+        `${isCart ? styles?.["flex_row"] : ""}`
+      )}
+    >
       <div className={styles.product_card__img_area}>
         <img
           src={product.imgUrl}
@@ -24,10 +29,6 @@ const ProductCard = ({ product }) => {
           <p className={styles.product_card__details__info__product_name}>
             {product.title}
           </p>
-          {/* <p className={styles.product_card__details__info__product_title}>
-            <span>Category :</span>
-            {product.category}
-          </p> */}
           <p className={styles.product_card__details__info__product_title}>
             <span>Brand :</span>
             {product.brand}
@@ -38,16 +39,19 @@ const ProductCard = ({ product }) => {
           </p>
         </div>
         <div className={styles.product_card__details__price}>
-          <span className={styles.product_card__details__price__old_price}>
-            {product.price} TL
-          </span>
+          {!isCart && (
+            <span className={styles.product_card__details__price__old_price}>
+              {product.price} &#8378;
+            </span>
+          )}
+
           <span className={styles.product_card__details__price__first_area}>
             <span
               className={
                 styles.product_card__details__price__first_area__new_price
               }
             >
-              {newPrice.toFixed(2)} TL
+              {discountPrice(product).toFixed(2)} &#8378;
             </span>
             <span
               className={
@@ -59,14 +63,21 @@ const ProductCard = ({ product }) => {
           </span>
         </div>
       </div>
-
-      <Button
-        preferences="add_btn"
-        classNames={styles.btn_primary}
-        onClick={handleAddProduct}
-      >
-        Add to Cart
-      </Button>
+      {!isCart ? (
+        <Button preferences="act_btn" onClick={() => addToCart(product)}>
+          Add to Cart
+        </Button>
+      ) : (
+        <Fragment>
+          <span className={styles.piece_area}>
+            Quantity : <span>{product.quantity - product.count}</span>
+          </span>
+          <CartBtnArea product={product} />
+          <span className={`${styles.piece_area} ${styles.sum_price}`}>
+            TOTAL : <span>{(product.count * discountPrice(product)).toFixed(2)} &#8378;</span>
+          </span>
+        </Fragment>
+      )}
     </li>
   );
 };
