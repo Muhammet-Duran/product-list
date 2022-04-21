@@ -5,6 +5,8 @@ import ProductCard from "./../ProductCard/ProductCard";
 import styles from "./Products.module.scss";
 
 const Products = ({ products, preferences, isCart }) => {
+  
+  
   return (
     <ul className={cn(styles.productlist, styles?.[preferences])}>
       {products?.map((product, i) => (

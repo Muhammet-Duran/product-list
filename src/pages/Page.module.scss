@@ -3,17 +3,20 @@
 .page{
 height: 100px;
 @include d-flex(center, center);
+
 &__title{
     font-size: 36px;
     padding: 10px;
     border-radius: 20px;
     background-color: $firstColor;
+    
 }
 }
 .home_body{
     @include d-flex(flex-start, center);
     max-width: 1660px;
     width: 100%;
+    padding-bottom: 24px;
     .col_3{
         grid-template-columns: repeat(3, 1fr);
     }

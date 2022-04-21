@@ -49,3 +49,14 @@
         color: $white;
     }
 }
+
+.page_btn{
+    border: 1px solid #000;
+    border-radius: $borderRadius;
+    padding:4px 8px;
+    color: #333;
+    &:hover{
+        border-color: $textColor;
+        
+    }
+}

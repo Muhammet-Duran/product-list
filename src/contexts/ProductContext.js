@@ -63,12 +63,28 @@ export const ProductContextProvider = (props) => {
   };
 
   //Sidebar Filter
-  const handleFilter = (title)=> {
-    const filterList = products.filter((product)=>product.category === title);
-    setProducts(filterList)
+  // const handleCategoryFilter = (title)=> {
+  //   const filterList = products.filter((product)=>product.category === title);
+  //   setProducts(filterList)
+  // }
+  // const handleColorFilter = (title)=> {
+  //   const filterList = products.filter((product)=>product.color === title);
+  //   setProducts(filterList)
+  // }
+  // const handleBrandFilter = (title)=> {
+  //   const filterList = products.filter((product)=>product.brand === title);
+  //   setProducts(filterList)
+  // }
+
+  // const allFilterProducts = ()=>{
+  //   const allFilter = handleCategoryFilter() || handleColorFilter() || handleBrandFilter();
+  //   setProducts(allFilter);
+  // }
+  const allFilterProducts = (title)=>{
+   const filterProduct = products.filter((product)=>product.category === title) || products.filter((product)=>product.color === title) || products.filter((product)=>product.brand === title);
+  //  const filterProduct = products.filter((product)=>product.category === title);
+    setProducts(filterProduct);
   }
-
-
 
   // Total Cart Amount
   const totalCartCost = cartList
@@ -90,7 +106,7 @@ export const ProductContextProvider = (props) => {
         decreaseToCart,
         removeToCart,
         totalCartCost,
-        handleFilter
+        allFilterProducts
       }}
     >
       {props.children}
