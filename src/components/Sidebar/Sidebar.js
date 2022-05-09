@@ -29,9 +29,12 @@ const Sidebar = () => {
     <div className={cn(styles.sidebar, `${openFilter && styles?.["show"]}`)}>
       <div className={styles.sidebar__inner}>
         {filterArr?.map((item, index) => (
-          <div key={index}>
+          <div key={index} className={styles.tab_area}>
             <h2 className={styles.sidebar__filter_title}>{item[0]}</h2>
-            <FilterList filterTitle={item[1]} />
+            {item[1]?.map((filterTitle, i) => (
+              <FilterList key={i} filterTitle={filterTitle} />
+            ))}
+            {/* <FilterList filterTitle={item[1]} /> */}
           </div>
         ))}
       </div>

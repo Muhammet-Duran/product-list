@@ -18,6 +18,14 @@
             padding-left: 4px;
             margin-bottom: 12px;
             color: lighten($black, 16%);
+            
+        }
+        .tab_area{
+            @include d-flex(flex-start, space-between);
+            flex-direction: column;
+            &:not(:first-child){
+                margin-top: 20px;
+            }
         }
         @include breakpoint(md-only){
             &__inner{

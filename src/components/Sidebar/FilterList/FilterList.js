@@ -1,19 +1,28 @@
-import React from "react";
+import { useState } from "react";
 import styles from "./FilterList.module.scss";
 import Button from "../../Button/Button";
-import { useProductContext } from "../../../contexts/ProductContext";
+// import { useProductContext } from "../../../contexts/ProductContext";
 const FilterList = ({ filterTitle }) => {
-  const {allFilterProducts} = useProductContext();
+  // const { allFilterProducts } = useProductContext();
+  // const [selectedCategories, setselectedCategories] = useState({
+  //   category: [],
+  //   color: [],
+  //   brand: [],
+  // });
+  const [isSelected, setIsSelected] = useState(false);
+  const handleFilterClick = () => {
+    setIsSelected(!isSelected);
+  };
+
   return (
-    <ul className={styles.list}>
-      {filterTitle?.map((title, index) => (
-        <li key={index} className={styles.list__item}>
-          <Button preferences="filter_btn" classNames={styles.btn_filter} onClick={()=>allFilterProducts(title)}>
-            {title}
-          </Button>
-        </li>
-      ))}
-    </ul>
+    <Button
+      classNames={`${styles.btn_filter} ${isSelected ? styles.active : " "}`}
+      onClick={handleFilterClick}
+      preferences="filter_btn"
+      // classNames={styles.btn_filter}
+    >
+      {filterTitle}
+    </Button>
   );
 };
 
