@@ -1,30 +1,73 @@
 @import "./../../styles/variables.scss";
 
+
 .options{
     @include d-flex(center,space-between);
     padding-top: 10px;
     padding-bottom: 10px;
-   
-    &__product_count{
-        padding-left: 10px;
-        font-size: 14px;
+    @include breakpoint(md-only){
+        flex-direction: column;
+        align-items: initial;
+        padding-right: 20px;
+        padding-left:20px;
     }
-    &__sort_area{
-        padding-right: 4px;
+
+    &__bottom{
+        @include d-flex(center,space-between);
+        padding-left: 10px;
+        margin-top: 20px;
+        @include breakpoint(md-only){
+            padding-left: 0px;
+            // padding-right: 10px;
+            order: 1;
+        }
+        .options_filter_btn{
+            display: none;
+            margin-left: 14px;
+            @include breakpoint(md-only){
+                @include d-flex(center,center);
+                .filter_text{
+                    font-size: 14px;
+                    display: inline-block;
+                    margin-left: 6px;
+                }
+                svg{
+                    color:$textColor;
+                    font-size: 20px;
+                }
+            }
+            
+        }
+    .product_count{
+        font-size: 14px;
         
-        > .btn_light{
-            &.active{
-                background-color: #DCDCDC;
-                border-color: lighten($black, 40%);
-            }
-            &:hover{
-                background-color: #DCDCDC;
-                border-color: lighten($black, 40%);
-            }
-            + .btn_light{
-                margin-left: 6px;
+    }
+   }
+    
+    &__sort_area{
+        display: none;
+    }
+    @include breakpoint(md){
+        &__sort_area{
+            padding-right: 4px;
+            display: block;
+            
+            > .btn_light{
+                &.active{
+                    background-color: #DCDCDC;
+                    border-color: lighten($black, 40%);
+                }
+                &:hover{
+                    background-color: #DCDCDC;
+                    border-color: lighten($black, 40%);
+                }
+                + .btn_light{
+                    margin-left: 6px;
+                }
             }
         }
     }
+    
+    
     
 }

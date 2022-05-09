@@ -28,6 +28,11 @@ $mt:12px;
 // breakpoints
 @mixin breakpoint($point) {
   @if $point == lg {
+    @media (max-width: 1240px) {
+      @content;
+    }
+  }@else if $point == md {
+    // 768px
     @media (min-width: 992px) {
       @content;
     }

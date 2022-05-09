@@ -14,7 +14,6 @@ const Home = () => {
 
   //mevcut sayfa ve sayfadaki eleman sayısı
   const indexOfLastEmployee = currentPage * employeesPerPage;
-  // console.log(indexOfLastEmployee);
   const indexOfFirstEmployee = indexOfLastEmployee - employeesPerPage;
   const currentProducts = products?.slice(
     indexOfFirstEmployee,
@@ -41,7 +40,7 @@ const Home = () => {
         products={products}
         pages={totalPagesNum}
         setCurrentPage={setCurrentPage}
-        currentEmployess={currentProducts}
+        currentProducts={currentProducts}
       />
     </Fragment>
   );

@@ -6,13 +6,17 @@ import { BsBagCheck } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const { cartList } = useProductContext();
+  const { cartList, openFilter } = useProductContext();
   return (
     <header className={styles.header_wrapper}>
       <div className={cn("container", styles.header_wrapper__h_area)}>
         <Link to="/" className={styles.header_wrapper__h_area__logo}>
           <span className={styles.firstly}>e</span>
-          <span className={styles.others}>- STORE</span>
+          <span
+            className={`${styles.others} ${openFilter && styles.color_black}`}
+          >
+            - STORE
+          </span>
         </Link>
 
         <Link to="/cart" className={styles.header_wrapper__h_area__cart}>

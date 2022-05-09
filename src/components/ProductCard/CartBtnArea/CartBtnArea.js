@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../Button/Button";
+import Modal from "../../Modal/Modal";
 import styles from "./CartBtnArea.module.scss";
 import { useProductContext } from "../../../contexts/ProductContext";
 
 const CartBtnArea = ({ product }) => {
-
+  const [openModal, setOpenModal] = useState(false);
   const { increaseToCart, removeToCart, decreaseToCart } = useProductContext();
 
   return (
+    // onClick={() => removeToCart(product)}
     <div className={styles.cartbtn_area}>
       <Button
         classNames={styles.delete_btn}
         preferences="act_btn"
-        onClick={() => removeToCart(product)}
+        onClick={() => setOpenModal(true)}
       >
         Remove
       </Button>
@@ -25,6 +27,7 @@ const CartBtnArea = ({ product }) => {
           -
         </Button>
       </div>
+      {openModal && <Modal closeModal={setOpenModal} product={product} />}
     </div>
   );
 };

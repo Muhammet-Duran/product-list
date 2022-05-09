@@ -1,12 +1,10 @@
-import React from "react";
 import styles from "./Page.module.scss";
 import Products from "../components/Products/Products";
+
 import { useProductContext } from "../contexts/ProductContext";
 
 const Cart = () => {
   const { cartList, totalCartCost } = useProductContext();
-
-  
 
   return (
     <div className="container">

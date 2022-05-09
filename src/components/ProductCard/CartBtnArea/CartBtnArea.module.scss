@@ -2,13 +2,28 @@
 .cartbtn_area{
     flex:1;
     margin-left: auto;
-    @include d-flex(center, space-evenly);
+    @include d-flex(center, center);
+    margin-right: 100px;
+    @include breakpoint(md-only){
+        margin-right: 0;
+        justify-content: flex-start;
+        padding-left: 24px;
+        padding-right: 24px;
+        margin-left: initial;
+    }
+    
     .delete_btn{
         width: 80px;
+        margin-right: 12px
     }
     .count_area{
         @include d-flex(center,space-between);
         flex-direction: column;
+        
+        @include breakpoint(md-only){
+          
+            flex-direction: row;
+        }
         .piece{
             display: inline-block;
             padding: 6px;

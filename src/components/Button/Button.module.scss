@@ -17,6 +17,10 @@
     color: $white;
     padding:12px 0;
     width: 100%;
+    @include breakpoint(md-only){
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
     &:hover{
         background-color:$headerColor;
     }
@@ -59,4 +63,22 @@
         border-color: $textColor;
         
     }
+}
+.modal_btn{
+  padding: 6px 12px;
+  margin: 10px;
+  border: none;
+  background-color:$textColor;
+  color: white;
+  border-radius: $borderRadius;
+  font-size: 16px;
+  
+}
+.filter_area_btn{
+    border:1px solid #d7dddb;
+    padding: 4px 16px;
+    border-radius: $borderRadius;
+    position: relative;
+    z-index:1000;
+    background-color: #ffffff;
 }

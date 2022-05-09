@@ -9,6 +9,8 @@
         &__logo{
             padding: 0px 10px 8px;
             cursor: pointer;
+            position: relative;
+            z-index: 1000;
             .firstly{
                 color: $firstColor;
                 display:inline-block;
@@ -24,6 +26,13 @@
                 font-size: 30px;
                 font-weight: 600;
                 text-decoration: underline;
+                transition: all 0.3s ease;
+                @include breakpoint(md-only){
+                    &.color_black{
+                        color: $black;
+                    }
+                }
+                
             }
         }
         &__cart{

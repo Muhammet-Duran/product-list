@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
-
+import cn from "classnames";
 import { GrFormNext } from "react-icons/gr";
 import { GrFormPrevious } from "react-icons/gr";
 import styles from "./Pagination.module.scss";
@@ -15,10 +15,9 @@ const Pagination = ({ pages, setCurrentPage, currentProducts, products }) => {
     setCurrentPage(currentButton);
   }, [currentButton, setCurrentPage]);
   return (
-    <div className="container">
+    <div className={cn("container", styles.pagination_wrapper)}>
       <div className={styles.pagination}>
         <div className={styles.info_text}>
-          {" "}
           {currentProducts?.length} / {products?.length}
         </div>
         <ul className={styles.pagination__list}>

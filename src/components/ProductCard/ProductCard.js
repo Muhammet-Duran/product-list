@@ -3,7 +3,7 @@ import styles from "./ProductCard.module.scss";
 import cn from "classnames";
 import Button from "../Button/Button";
 import CartBtnArea from "./CartBtnArea/CartBtnArea";
-import { discountPrice } from "../Helpers/discountPrice";
+import { discountPrice } from "../../Helpers/discountPrice";
 import { useProductContext } from "../../contexts/ProductContext";
 
 const ProductCard = ({ product, isCart }) => {
@@ -74,7 +74,10 @@ const ProductCard = ({ product, isCart }) => {
           </span>
           <CartBtnArea product={product} />
           <span className={`${styles.piece_area} ${styles.sum_price}`}>
-            TOTAL : <span>{(product.count * discountPrice(product)).toFixed(2)} &#8378;</span>
+            TOTAL :{" "}
+            <span>
+              {(product.count * discountPrice(product)).toFixed(2)} &#8378;
+            </span>
           </span>
         </Fragment>
       )}

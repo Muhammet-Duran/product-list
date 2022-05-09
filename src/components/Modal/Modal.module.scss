@@ -1,0 +1,43 @@
+@import "./../../styles/variables.scss";
+.modal_background{
+  
+  background-color:rgba(#000000, .50);
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  @include d-flex(center,center);
+  .modal_container{
+    width: 400px;
+    border-radius: $borderRadius;
+    background-color: white;
+    box-shadow: rgba(#000000, .35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 12px;
+    &__top{
+        text-align: center;
+        .title{
+            margin-top: 10px; 
+            font-size: 24px;
+        }
+    }
+    &__body{
+   
+        @include d-flex(center,center);
+        text-align:justify;
+        margin-top: 10px;
+        .description{
+            font-size:14px;
+            color: #333;
+        }
+    }
+    &__footer{
+         @include d-flex(center,center);
+    }
+    
+  }
+}

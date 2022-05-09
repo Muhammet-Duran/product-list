@@ -5,11 +5,16 @@ import ProductCard from "./../ProductCard/ProductCard";
 import styles from "./Products.module.scss";
 
 const Products = ({ products, preferences, isCart }) => {
-  
-  
   return (
-    <ul className={cn(styles.productlist, styles?.[preferences])}>
+    <ul
+      className={cn(
+        styles.productlist,
+        styles?.[preferences],
+        `${isCart ? styles?.["col_2"] : styles?.["col_mobile"]}`
+      )}
+    >
       {products?.map((product, i) => (
+        
         <ProductCard key={i} product={product} isCart={isCart} />
       ))}
     </ul>

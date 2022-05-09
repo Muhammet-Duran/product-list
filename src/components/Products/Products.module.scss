@@ -10,18 +10,47 @@
     max-width: 1360px;
     margin-left:20px;
     width: 100%;
+    @include breakpoint(lg){
+        gap:10px;
+    }
+    @include breakpoint(md-only){
+        margin-left:0;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
     &.col_2{
         grid-template-columns: repeat(2, 1fr);
+        margin-left: 0;
+        @include breakpoint(md-only){
+            grid-template-columns: repeat(1,1fr);
+        }
     }
-    &.col_3{
-        grid-template-columns: repeat(3, 1fr);
+    @include breakpoint(md){
+        
+        
+        &.col_3{
+            grid-template-columns: repeat(3, 1fr);
+        }
+        &.col_4{
+            grid-template-columns: repeat(4, 1fr);
+        }
+        &.col_5{
+            grid-template-columns: repeat(5, 1fr);
+        }
     }
-    &.col_4{
-        grid-template-columns: repeat(4, 1fr);
+    
+    &.col_mobile{
+        
+        @include breakpoint(md-only){
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @include breakpoint(sm-only){
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
-    &.col_5{
-        grid-template-columns: repeat(5, 1fr);
-    }
+    
+    
+    
     
 }
 

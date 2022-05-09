@@ -1,16 +1,27 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { getProductList } from "../api/productData";
-import { discountPrice } from "../components/Helpers/discountPrice";
+import { discountPrice } from "../Helpers/discountPrice";
 const ProductContext = createContext();
 
 export const ProductContextProvider = (props) => {
   const [products, setProducts] = useState([]);
   const [cartList, setCartList] = useState([]);
+  const [openFilter, setOpenFilter] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   // const [btnActive, setBtnActive] = useState(false);
-  // console.log(products);
+
   const getProducts = async () => {
-    const data = await getProductList();
-    setProducts(data);
+    setIsLoading(true);
+    setError(null);
+    try {
+      const data = await getProductList();
+      setProducts(data);
+    } catch (error) {
+      setError("🤔 Oops! Something went wrong");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -62,38 +73,15 @@ export const ProductContextProvider = (props) => {
     setCartList(newList);
   };
 
-  //Sidebar Filter
-  // const handleCategoryFilter = (title)=> {
-  //   const filterList = products.filter((product)=>product.category === title);
-  //   setProducts(filterList)
-  // }
-  // const handleColorFilter = (title)=> {
-  //   const filterList = products.filter((product)=>product.color === title);
-  //   setProducts(filterList)
-  // }
-  // const handleBrandFilter = (title)=> {
-  //   const filterList = products.filter((product)=>product.brand === title);
-  //   setProducts(filterList)
-  // }
-
-  // const allFilterProducts = ()=>{
-  //   const allFilter = handleCategoryFilter() || handleColorFilter() || handleBrandFilter();
-  //   setProducts(allFilter);
-  // }
-  const allFilterProducts = (title)=>{
-   const filterProduct = products.filter((product)=>product.category === title) || products.filter((product)=>product.color === title) || products.filter((product)=>product.brand === title);
-  //  const filterProduct = products.filter((product)=>product.category === title);
-    setProducts(filterProduct);
-  }
-
   // Total Cart Amount
   const totalCartCost = cartList
     .reduce(
-      (total, product) => (total = total + parseInt(discountPrice(product)) * parseInt(product.count)),
+      (total, product) =>
+        (total =
+          total + parseInt(discountPrice(product)) * parseInt(product.count)),
       0
     )
     .toFixed(2);
-
 
   return (
     <ProductContext.Provider
@@ -106,7 +94,11 @@ export const ProductContextProvider = (props) => {
         decreaseToCart,
         removeToCart,
         totalCartCost,
-        allFilterProducts
+
+        openFilter,
+        setOpenFilter,
+        error,
+        isLoading,
       }}
     >
       {props.children}
