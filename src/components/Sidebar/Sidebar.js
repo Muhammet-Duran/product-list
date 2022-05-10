@@ -13,6 +13,11 @@ const Sidebar = () => {
   const filterCategories = filterCategory(categoryList);
   const filterColor = filterCategory(colorList);
   const filterBrand = filterCategory(brandList);
+  const categories = {
+    category: filterCategories,
+    color: filterColor,
+    brand: filterBrand,
+  };
 
   const filterList = () => {
     const filterTitle = ["Category", "Color", "Brand"];
@@ -32,7 +37,11 @@ const Sidebar = () => {
           <div key={index} className={styles.tab_area}>
             <h2 className={styles.sidebar__filter_title}>{item[0]}</h2>
             {item[1]?.map((filterTitle, i) => (
-              <FilterList key={i} filterTitle={filterTitle} />
+              <FilterList
+                key={i}
+                filterTitle={filterTitle}
+                categories={categories}
+              />
             ))}
             {/* <FilterList filterTitle={item[1]} /> */}
           </div>

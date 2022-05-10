@@ -1,7 +1,7 @@
 import { fetch } from "./fetch.js";
 
-export const getProductList = async () => {
-  const response = await fetch.get("/products");
+export const getProductList = async (filterBy) => {
+  const response = await fetch.get(`/products?${filterBy}&`);
   return response.data;
 };
 getProductList();
