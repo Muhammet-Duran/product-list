@@ -11,17 +11,17 @@ const Sidebar = () => {
   const colorList = products.map((product) => product.color);
   const brandList = products.map((product) => product.brand);
   const filterCategories = filterCategory(categoryList);
-  const filterColor = filterCategory(colorList);
-  const filterBrand = filterCategory(brandList);
+  const filterColors = filterCategory(colorList);
+  const filterBrands = filterCategory(brandList);
   const categories = {
     category: filterCategories,
-    color: filterColor,
-    brand: filterBrand,
+    color: filterColors,
+    brand: filterBrands,
   };
 
   const filterList = () => {
     const filterTitle = ["Category", "Color", "Brand"];
-    const filterValues = [filterCategories, filterColor, filterBrand];
+    const filterValues = [filterCategories, filterColors, filterBrands];
     const newFilterArr = [];
     let i;
     for (i = 0; i < 3; i++) {

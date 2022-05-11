@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { getProductList } from "../api/productData";
+// import { getProductList } from "../api/productData";
 import { discountPrice } from "../Helpers/discountPrice";
 import { generateLink } from "../Helpers/generateLink";
 const ProductContext = createContext();
@@ -11,14 +11,14 @@ export const ProductContextProvider = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   // const [btnActive, setBtnActive] = useState(false);
-  console.log(products);
+  // console.log(products);
   const getProducts = async () => {
     setIsLoading(true);
     setError(null);
     try {
-      const data = await generateLink();
+      const data = await generateLink([], [], []);
       setProducts(data);
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       setError("🤔 Oops! Something went wrong");
     } finally {
@@ -27,9 +27,10 @@ export const ProductContextProvider = (props) => {
   };
 
   // const resultLink = generateLink(person, color);
-
+  // console.log(products);
   useEffect(() => {
     getProducts();
+    // generateLink();
   }, []);
 
   //Add to Cart Item

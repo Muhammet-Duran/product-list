@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./FilterList.module.scss";
 import Button from "../../Button/Button";
 import { generateLink } from "../../../Helpers/generateLink";
@@ -6,6 +6,7 @@ import { useProductContext } from "../../../contexts/ProductContext";
 const FilterList = ({ filterTitle, categories }) => {
   const { getProducts } = useProductContext();
   const [isSelected, setIsSelected] = useState(false);
+
   const [selectedCategories, setselectedCategories] = useState({
     category: [],
     color: [],
@@ -14,19 +15,22 @@ const FilterList = ({ filterTitle, categories }) => {
 
   const { category, color, brand } = selectedCategories;
   generateLink(category, color, brand);
+  // const handleFilterClick = () => {
+  //   setIsSelected(!isSelected);
+  //   console.log(isSelected);
+  // };
 
   const handleFilterClick = (name) => {
-    setIsSelected(!isSelected);
-    // console.log(isSelected, "sadsa");
-    const filterName = name;
-    // const checked = isSelected;
-    // console.log(checked);
+    const checked = setIsSelected(!isSelected);
 
+    const filterName = name;
+    console.log(filterName);
     const { category, color, brand } = categories;
-    if (isSelected) {
-      // console.log("cek oldu");
+    if (checked) {
+      console.log("isSelectedİF", isSelected);
       //check if filterName is from  category type
       if (category.includes(filterName)) {
+        console.log("category");
         setselectedCategories({
           ...selectedCategories,
           category: [...selectedCategories.category, filterName],
@@ -47,6 +51,7 @@ const FilterList = ({ filterTitle, categories }) => {
         });
       }
     } else {
+      console.log("isSelectedELSE", isSelected);
       //if unchecked => filter out selected category
       if (category.includes(filterName)) {
         setselectedCategories({
@@ -72,14 +77,17 @@ const FilterList = ({ filterTitle, categories }) => {
       }
     }
     getProducts();
+    console.log(selectedCategories);
   };
+  // useEffect(() => {
+  //   handleFilterClick();
+  // }, [selectedCategories]);
 
   return (
     <Button
       classNames={`${styles.btn_filter} ${isSelected ? styles.active : " "}`}
-      onClick={handleFilterClick}
+      onClick={() => handleFilterClick(filterTitle)}
       preferences="filter_btn"
-      // classNames={styles.btn_filter}
     >
       {filterTitle}
     </Button>

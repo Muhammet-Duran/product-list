@@ -2,11 +2,14 @@
 
   
 .btn_filter{
+    border-radius: 10px;
+    transition: all .3s ;
+
     &.active{
-        color: $textColor;
-        // color: $textColor; 
-        text-decoration: underline;
+        background-color: $textColor;
+        color:$white;
     }
     &:hover{
-        color: $textColor;
+        background-color: $textColor;
+        color:$white;
     }}

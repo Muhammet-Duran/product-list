@@ -1,7 +1,7 @@
 import { getProductList } from "../api/productData";
 
 //Generate link with multiple filter
-export const generateLink = (person = [], color = [], brand = []) => {
+export const generateLink = (category = [], color = [], brand = []) => {
   const template = (slug, column) => {
     return `${column}=${slug}`;
   };
@@ -12,34 +12,42 @@ export const generateLink = (person = [], color = [], brand = []) => {
       })
       .join("&");
   };
-  let personFilter;
+  let categoryFilter;
   let colorFilter;
   let brandFilter;
   let link;
   let filter;
 
-  if (person.length) {
-    personFilter = `${generateFilter(person, "person")}`;
-
-    filter = `${personFilter}`;
+  if (category.length) {
+    categoryFilter = `${generateFilter(category, "category")}`;
+    filter = `${categoryFilter}`;
   }
   if (color.length) {
     colorFilter = `${generateFilter(color, "color")}`;
-
     filter = `${colorFilter}`;
   }
   if (brand.length) {
-    brandFilter = `${generateFilter(brand, "color")}`;
-
+    brandFilter = `${generateFilter(brand, "brand")}`;
     filter = `${brandFilter}`;
   }
-  // console.log(filter);
-  if (person.length && color.length && brand.length) {
-    filter = `${personFilter}&${colorFilter}`;
+
+  if (category.length && color.length) {
+    filter = `${categoryFilter}&${colorFilter}`;
   }
+
+  if (category.length && brand.length) {
+    filter = `${categoryFilter}&${brandFilter}`;
+  }
+  if (color.length && brand.length) {
+    filter = `${colorFilter}&${brandFilter}`;
+  }
+  if (category.length && color.length && brand.length) {
+    filter = `${categoryFilter}&${colorFilter}&${brandFilter}`;
+  }
+
   link = getProductList(filter);
 
-  if (!person.length && !color.length) {
+  if (!category.length && !color.length && !brand.length) {
     link = getProductList();
   }
   return link;
