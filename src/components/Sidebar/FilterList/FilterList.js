@@ -22,6 +22,9 @@ const FilterList = ({ filterTitle, categories }) => {
           ...selectedCategories,
           category: [...selectedCategories.category, filterName],
         });
+        // console.log(filterName, "category");
+        // console.log(isSelected, "isSelct");
+        // console.log(selectedCategories);
       }
 
       if (color.includes(filterName)) {

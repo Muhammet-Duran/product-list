@@ -1,7 +1,8 @@
 import { createContext, useContext, useState, useEffect } from "react";
 // import { getProductList } from "../api/productData";
+// import { getSearchProduct } from "../api/getSearchProduct";
 import { discountPrice } from "../helpers/discountPrice";
-import { generateLink } from "../helpers/generateLink";
+import { generateLink } from "./../helpers/generateLink";
 const ProductContext = createContext();
 
 export const ProductContextProvider = (props) => {
@@ -16,15 +17,14 @@ export const ProductContextProvider = (props) => {
     color: [],
     brand: [],
   });
-
+  const { category, color, brand } = selectedCategories;
   const getProducts = async () => {
     setIsLoading(true);
     setError(null);
     try {
-      const { category, color, brand } = selectedCategories;
       const data = await generateLink(category, color, brand);
       setProducts(data);
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       setError("🤔 Oops! Something went wrong");
     } finally {

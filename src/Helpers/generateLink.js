@@ -3,9 +3,13 @@ import { getProductList } from "../api/productData";
 //Generate link with multiple filter
 export const generateLink = (category = [], color = [], brand = []) => {
   const template = (slug, column) => {
+    console.log("temp column",column)
+    console.log("slug column",slug)
     return `${column}=${slug}`;
   };
   const generateFilter = (array, column) => {
+    // console.log("column generate,", column);
+    // console.log("array generate,", array);
     return array
       .map((item) => {
         return template(item, column);
@@ -21,6 +25,7 @@ export const generateLink = (category = [], color = [], brand = []) => {
   if (category.length) {
     categoryFilter = `${generateFilter(category, "category")}`;
     filter = `${categoryFilter}`;
+    // console.log("filterCate,", filter);
   }
   if (color.length) {
     colorFilter = `${generateFilter(color, "color")}`;
