@@ -1,49 +1,36 @@
 import { useState, useEffect } from "react";
-import styles from "./FilterList.module.scss";
+
 import Button from "../../Button/Button";
-import { generateLink } from "../../../Helpers/generateLink";
 import { useProductContext } from "../../../contexts/ProductContext";
+
+import styles from "./FilterList.module.scss";
+
 const FilterList = ({ filterTitle, categories }) => {
-  const { getProducts } = useProductContext();
+  const { getProducts, selectedCategories, setselectedCategories } =
+    useProductContext();
   const [isSelected, setIsSelected] = useState(false);
 
-  const [selectedCategories, setselectedCategories] = useState({
-    category: [],
-    color: [],
-    brand: [],
-  });
+  const handleClick = () => {
+    setIsSelected(!isSelected);
+  };
 
-  const { category, color, brand } = selectedCategories;
-  generateLink(category, color, brand);
-  // const handleFilterClick = () => {
-  //   setIsSelected(!isSelected);
-  //   console.log(isSelected);
-  // };
-
-  const handleFilterClick = (name) => {
-    const checked = setIsSelected(!isSelected);
-
-    const filterName = name;
-    console.log(filterName);
+  const handleFilter = (filterName) => {
     const { category, color, brand } = categories;
-    if (checked) {
-      console.log("isSelectedİF", isSelected);
-      //check if filterName is from  category type
+    if (isSelected) {
       if (category.includes(filterName)) {
-        console.log("category");
         setselectedCategories({
           ...selectedCategories,
           category: [...selectedCategories.category, filterName],
         });
       }
-      //check if filterName is from color category type
+
       if (color.includes(filterName)) {
         setselectedCategories({
           ...selectedCategories,
           color: [...selectedCategories.color, filterName],
         });
       }
-      //check if filterName is from brand category type
+
       if (brand.includes(filterName)) {
         setselectedCategories({
           ...selectedCategories,
@@ -51,7 +38,6 @@ const FilterList = ({ filterTitle, categories }) => {
         });
       }
     } else {
-      console.log("isSelectedELSE", isSelected);
       //if unchecked => filter out selected category
       if (category.includes(filterName)) {
         setselectedCategories({
@@ -77,16 +63,16 @@ const FilterList = ({ filterTitle, categories }) => {
       }
     }
     getProducts();
-    console.log(selectedCategories);
   };
-  // useEffect(() => {
-  //   handleFilterClick();
-  // }, [selectedCategories]);
+
+  useEffect(() => {
+    handleFilter(filterTitle);
+  }, [isSelected]);
 
   return (
     <Button
       classNames={`${styles.btn_filter} ${isSelected ? styles.active : " "}`}
-      onClick={() => handleFilterClick(filterTitle)}
+      onClick={handleClick}
       preferences="filter_btn"
     >
       {filterTitle}

@@ -3,7 +3,7 @@ import styles from "./ProductCard.module.scss";
 import cn from "classnames";
 import Button from "../Button/Button";
 import CartBtnArea from "./CartBtnArea/CartBtnArea";
-import { discountPrice } from "../../Helpers/discountPrice";
+import { discountPrice } from "../../helpers/discountPrice";
 import { useProductContext } from "../../contexts/ProductContext";
 
 const ProductCard = ({ product, isCart }) => {
