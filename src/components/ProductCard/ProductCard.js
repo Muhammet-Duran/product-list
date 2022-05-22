@@ -8,7 +8,6 @@ import { useProductContext } from "../../contexts/ProductContext";
 
 const ProductCard = ({ product, isCart }) => {
   const { addToCart } = useProductContext();
-  // const newPrice = parseInt(product.price) * ((100 - product.discount) / 100);
 
   return (
     <li

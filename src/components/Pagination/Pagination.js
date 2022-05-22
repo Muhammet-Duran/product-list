@@ -13,6 +13,7 @@ const Pagination = ({ pages, setCurrentPage, currentProducts, products }) => {
 
   useEffect(() => {
     setCurrentPage(currentButton);
+    window.scrollTo(0, 0);
   }, [currentButton, setCurrentPage]);
   return (
     <div className={cn("container", styles.pagination_wrapper)}>
@@ -28,9 +29,9 @@ const Pagination = ({ pages, setCurrentPage, currentProducts, products }) => {
               classNames={` ${styles.btn_pagination} ${
                 currentButton === 1 ? styles.disabled : ""
               }`}
-              onClick={() =>
-                setCurrentButton((prev) => (prev === 1 ? prev : prev - 1))
-              }
+              onClick={() => {
+                setCurrentButton((prev) => (prev === 1 ? prev : prev - 1));
+              }}
             >
               <GrFormPrevious
                 className={styles.pagination__list__item__number__page_icon}

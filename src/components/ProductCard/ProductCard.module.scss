@@ -19,10 +19,6 @@
         @include breakpoint(md-only){
             flex-direction: column;
         }
-        &:hover{
-            box-shadow: none;
-            border-color: $borderColor;
-        }
         .product_card__img_area{
             
             max-width: 120px;
@@ -111,12 +107,14 @@
         
 
     }
-   
-    &:hover{
-        box-shadow:$boxShadow;
-        border-color: transparent;
-       
+    @include breakpoint(md){
+        &:hover{
+            box-shadow:$boxShadow;
+            border-color: transparent;
+           
+        }
     }
+    
     .piece_area{
         position: absolute;
         top:20px;

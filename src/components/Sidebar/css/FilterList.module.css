@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,700&display=swap");
+.btn_filter {
+  border-radius: 10px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.btn_filter.active {
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+.btn_filter:hover {
+  background-color: #3498db;
+  color: #ffffff;
+}
+/*# sourceMappingURL=FilterList.module.css.map */

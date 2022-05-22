@@ -15,7 +15,6 @@ function SearchArea() {
       };
       getSearchList();
     }
-    // setProducts(products);
   };
 
   return (

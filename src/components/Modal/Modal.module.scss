@@ -18,6 +18,9 @@
     display: flex;
     flex-direction: column;
     padding: 20px 20px 12px;
+    @include breakpoint(md-only){
+      width: calc(100% - 60px);
+    }
     &__top{
         text-align: center;
         .title{
@@ -33,6 +36,9 @@
         .description{
             font-size:14px;
             color: #333;
+            @include breakpoint(md-only){
+              font-size: 13px;
+            }
         }
     }
     &__footer{

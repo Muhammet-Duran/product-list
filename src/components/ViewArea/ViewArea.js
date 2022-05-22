@@ -8,12 +8,8 @@ import cn from "classnames";
 
 const ViewArea = ({ handleViewChange }) => {
   const [activeView, setActiveView] = useState(1);
-  const { products, openFilter, setOpenFilter } = useProductContext();
-  const handleMenuToggle = () => {
-    setOpenFilter(!openFilter);
-    console.log("mrb");
-    console.log(openFilter);
-  };
+  const { products, handleMenuToggle } = useProductContext();
+
   const onClickChange = (column, index) => {
     handleViewChange(column);
     setActiveView(index);

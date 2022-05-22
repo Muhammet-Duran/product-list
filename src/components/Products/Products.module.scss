@@ -42,10 +42,10 @@
     &.col_mobile{
         
         @include breakpoint(md-only){
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
         }
         @include breakpoint(sm-only){
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns:none;
         }
     }
     

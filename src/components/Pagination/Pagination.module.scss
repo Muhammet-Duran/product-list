@@ -6,7 +6,7 @@
 }
 
 .pagination{
-    @include d-flex(flex-end,flex-end);
+    @include d-flex(flex-end,center);
     margin-bottom: 40px;
    
     .info_text{

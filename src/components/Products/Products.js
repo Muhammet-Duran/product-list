@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 import ProductCard from "./../ProductCard/ProductCard";
-// import {useProductContext} from "./../../contexts/ProductContext";
+import NotFound from "../NotFound/NotFound";
 import styles from "./Products.module.scss";
 
 const Products = ({ products, preferences, isCart }) => {
@@ -13,10 +13,13 @@ const Products = ({ products, preferences, isCart }) => {
         `${isCart ? styles?.["col_2"] : styles?.["col_mobile"]}`
       )}
     >
-      {products?.map((product, i) => (
-        
-        <ProductCard key={i} product={product} isCart={isCart} />
-      ))}
+      {products?.length ? (
+        products?.map((product, i) => (
+          <ProductCard key={i} product={product} isCart={isCart} />
+        ))
+      ) : (
+        <NotFound />
+      )}
     </ul>
   );
 };

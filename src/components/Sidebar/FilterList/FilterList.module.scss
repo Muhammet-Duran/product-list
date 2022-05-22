@@ -9,7 +9,11 @@
         background-color: $textColor;
         color:$white;
     }
-    &:hover{
-        background-color: $textColor;
-        color:$white;
-    }}
+    @include breakpoint(md){
+        &:hover{
+            background-color: $textColor;
+            color:$white;
+        }
+    }
+    
+}

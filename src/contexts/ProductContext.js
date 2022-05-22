@@ -1,6 +1,4 @@
 import { createContext, useContext, useState, useEffect } from "react";
-// import { getProductList } from "../api/productData";
-// import { getSearchProduct } from "../api/getSearchProduct";
 import { discountPrice } from "../helpers/discountPrice";
 import { generateLink } from "./../helpers/generateLink";
 const ProductContext = createContext();
@@ -11,12 +9,21 @@ export const ProductContextProvider = (props) => {
   const [openFilter, setOpenFilter] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  // const [isActive, setIsActive] = useState(false);
   const [selectedCategories, setselectedCategories] = useState({
     category: [],
     color: [],
     brand: [],
   });
+
+  const handleMenuToggle = () => {
+    setOpenFilter(!openFilter);
+  };
+
+  openFilter
+    ? (document.body.style.overflow = "hidden")
+    : (document.body.style.overflow = "unset");
+
   const { category, color, brand } = selectedCategories;
   const getProducts = async () => {
     setIsLoading(true);
@@ -24,7 +31,6 @@ export const ProductContextProvider = (props) => {
     try {
       const data = await generateLink(category, color, brand);
       setProducts(data);
-      // console.log(data);
     } catch (error) {
       setError("🤔 Oops! Something went wrong");
     } finally {
@@ -110,6 +116,9 @@ export const ProductContextProvider = (props) => {
         generateLink,
         selectedCategories,
         setselectedCategories,
+        handleMenuToggle,
+        // isActives,
+        // setIsActive,
       }}
     >
       {props.children}

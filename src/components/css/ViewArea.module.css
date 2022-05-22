@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,700&display=swap");
+.options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 991px) {
+  .options {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: initial;
+        -ms-flex-align: initial;
+            align-items: initial;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+.options__bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 10px;
+  margin-top: 20px;
+}
+
+@media (max-width: 991px) {
+  .options__bottom {
+    padding-left: 0px;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+}
+
+.options__bottom .options_filter_btn {
+  display: none;
+  margin-left: 14px;
+}
+
+@media (max-width: 991px) {
+  .options__bottom .options_filter_btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .options__bottom .options_filter_btn .filter_text {
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 6px;
+  }
+  .options__bottom .options_filter_btn svg {
+    color: #3498db;
+    font-size: 20px;
+  }
+}
+
+.options__bottom .product_count {
+  font-size: 14px;
+}
+
+.options__sort_area {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .options__sort_area {
+    padding-right: 4px;
+    display: block;
+  }
+  .options__sort_area > .btn_light.active {
+    background-color: #DCDCDC;
+    border-color: #666666;
+  }
+  .options__sort_area > .btn_light:hover {
+    background-color: #DCDCDC;
+    border-color: #666666;
+  }
+  .options__sort_area > .btn_light + .btn_light {
+    margin-left: 6px;
+  }
+}
+/*# sourceMappingURL=ViewArea.module.css.map */

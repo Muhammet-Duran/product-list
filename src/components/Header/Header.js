@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import { useProductContext } from "../../contexts/ProductContext";
 import cn from "classnames";
 import styles from "./Header.module.scss";
@@ -6,7 +6,7 @@ import { BsBagCheck } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const { cartList, openFilter } = useProductContext();
+  const { cartList, openFilter, handleMenuToggle } = useProductContext();
   return (
     <header className={styles.header_wrapper}>
       <div className={cn("container", styles.header_wrapper__h_area)}>
@@ -20,7 +20,10 @@ const Header = () => {
         </Link>
 
         <Link to="/cart" className={styles.header_wrapper__h_area__cart}>
-          <BsBagCheck className={styles.header_wrapper__h_area__cart__icon} />
+          <BsBagCheck
+            className={styles.header_wrapper__h_area__cart__icon}
+            onClick={handleMenuToggle}
+          />
           <span className={styles.header_wrapper__h_area__cart__count}>
             {cartList?.length}
           </span>
