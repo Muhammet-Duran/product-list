@@ -8,8 +8,11 @@ import styles from "./Page.module.scss";
 import useWindowSize from "../hooks/useWindowSize";
 
 const Home = () => {
-  const { products } = useProductContext();
+  const { products, searchInput } = useProductContext();
   
+  const filterList = products?.filter((item) =>
+    item.title.toLowerCase().includes(searchInput.toLowerCase())
+  );
 
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage, setProductsPerPage] = useState(12);
@@ -26,7 +29,7 @@ const Home = () => {
   //mevcut sayfa ve sayfadaki eleman sayısı
   const indexOfLastEmployee = currentPage * productsPerPage;
   const indexOfFirstEmployee = indexOfLastEmployee - productsPerPage;
-  const currentProducts = products?.slice(
+  const currentProducts = filterList?.slice(
     indexOfFirstEmployee,
     indexOfLastEmployee
   );
