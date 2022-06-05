@@ -16,9 +16,10 @@
 -React-router-dom
 
 ## Development
- Firstly Json-server start👉 npm run start-server:server
+
 
 ```bash
+Json-server start👉 npm run start-server:server
 git clone https://github.com/Muhammet-Duran/product-list.git
 cd movie-app
 npm install or yarn install
