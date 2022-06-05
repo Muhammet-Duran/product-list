@@ -16,7 +16,7 @@
 -React-router-dom
 
 ## Development
-
+ Firstly Json-server start👉 npm run start-server:server
 
 ```bash
 git clone https://github.com/Muhammet-Duran/product-list.git
