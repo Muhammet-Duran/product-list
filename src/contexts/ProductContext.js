@@ -36,20 +36,17 @@ export const ProductContextProvider = (props) => {
   ];
 
   const [filterValue, setFilterValue] = useState(filterValues);
-  // console.log(filterValue)
+
   const handleActiveTitle = (title) => {
     const newList = filterValue?.map((item)=>({...item, titleArea:item.titleArea.map(el=>el.title === title ?{...el, active : !el.active} :el)}))
     setFilterValue(newList)
   
   };
-  // const markItem= ()=>{
-  //   const newList = filterValue?.map((item)=>({...item, titleArea:item.titleArea.map(el=>el.active === true ?{...el, active : false} :el)}))
-  //   setFilterValue(newList)
-  // }
+
 
   const onSearchValue = (e) => {
     setSearchInput(e.target.value);
-    // markItem();
+
   };
   
   
