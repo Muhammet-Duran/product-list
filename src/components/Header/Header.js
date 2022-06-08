@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+
 import { useProductContext } from "../../contexts/ProductContext";
 import cn from "classnames";
 import styles from "./Header.module.scss";

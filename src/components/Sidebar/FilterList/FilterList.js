@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import {useEffect } from "react";
 
 import Button from "../../Button/Button";
 import { useProductContext } from "../../../contexts/ProductContext";
@@ -15,18 +15,13 @@ const FilterList = ({ filterTitle, categories, active
     setselectedCategories,
     handleActiveTitle
   } = useProductContext();
-  // const [isSelected, setIsSelected] = useState(false);
-  // const handleClick = () => {
-    
-  //   handleActiveTitle(filterTitle)
-  //   setIsSelected(!isSelected);
-  // };
+  
 
   const handleFilter = (filterName) => {
     const { category, color, brand } = categories;
     if (active) {
       if (category.some(el=>el.title === filterName)) {
-        // setSelectedItem(filterName);
+      
         setselectedCategories({
           ...selectedCategories,
           category: [...selectedCategories.category, filterName],

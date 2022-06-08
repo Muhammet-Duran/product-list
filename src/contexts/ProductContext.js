@@ -172,7 +172,6 @@ export const ProductContextProvider = (props) => {
         categories,
         filterValue,
         handleActiveTitle,
-        // markItem,
         searchInput,
         onSearchValue
       }}

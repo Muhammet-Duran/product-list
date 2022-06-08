@@ -26,7 +26,6 @@ const Home = () => {
     
   }, [size,productsPerPage])
 
-  //mevcut sayfa ve sayfadaki eleman sayısı
   const indexOfLastEmployee = currentPage * productsPerPage;
   const indexOfFirstEmployee = indexOfLastEmployee - productsPerPage;
   const currentProducts = filterList?.slice(

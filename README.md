@@ -19,6 +19,7 @@
 To install and work on `https://weather-app-muhammetduran.vercel.app/`
 
 ```bash
+Json-server start👉 npm run start-server:server
 git clone https://github.com/Muhammet-Duran/product-list.git
 cd movie-app
 npm install or yarn install

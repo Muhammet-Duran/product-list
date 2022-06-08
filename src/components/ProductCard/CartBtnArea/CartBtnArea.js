@@ -6,10 +6,9 @@ import { useProductContext } from "../../../contexts/ProductContext";
 
 const CartBtnArea = ({ product }) => {
   const [openModal, setOpenModal] = useState(false);
-  const { increaseToCart, removeToCart, decreaseToCart } = useProductContext();
+  const { increaseToCart, decreaseToCart } = useProductContext();
 
   return (
-    // onClick={() => removeToCart(product)}
     <div className={styles.cartbtn_area}>
       <Button
         classNames={styles.delete_btn}
