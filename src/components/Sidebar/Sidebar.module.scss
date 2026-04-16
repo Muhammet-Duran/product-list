@@ -7,10 +7,33 @@
         margin-top: 24px;
         border-radius:$borderRadius;
         border: 1px solid $borderColor;
-        padding: 40px 20px 20px 30px;
+        padding: 40px 18px 20px 18px;
         background-color:$white;
        
         transition: all 0.3s ease;
+        
+        .clear_all_btn{
+            width: 100%;
+            padding: 10px 16px;
+            // margin-bottom: 20px;
+            background-color: #f4434d;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            
+            &:hover{
+                background-color: #d32f2f;
+                transform: translateY(-1px);
+            }
+            
+            &:active{
+                transform: translateY(0);
+            }
+        }
         
         &__filter_title{
             font-size: 14px;
@@ -18,11 +41,15 @@
             padding-left: 4px;
             margin-bottom: 12px;
             color: lighten($black, 16%);
+            text-transform: uppercase;
             
         }
         .tab_area{
             @include d-flex(flex-start, space-between);
             flex-direction: column;
+            border-top: 1px solid $borderColor;
+            border-bottom: 1px solid $borderColor;
+            padding: 10px 12px;
             &:not(:first-child){
                 margin-top: 20px;
             }

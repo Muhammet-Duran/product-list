@@ -3,7 +3,7 @@ import styles from "./ProductCard.module.scss";
 import cn from "classnames";
 import Button from "../Button/Button";
 import CartBtnArea from "./CartBtnArea/CartBtnArea";
-import { discountPrice } from "../../helpers/discountPrice";
+import { discountPrice } from "../../Helpers/discountPrice";
 import { useProductContext } from "../../contexts/ProductContext";
 
 const ProductCard = ({ product, isCart }) => {
@@ -13,7 +13,7 @@ const ProductCard = ({ product, isCart }) => {
     <li
       className={cn(
         styles.product_card,
-        `${isCart ? styles?.["flex_row"] : ""}`
+        `${isCart ? styles?.["flex_row"] : ""}`,
       )}
     >
       <div className={styles.product_card__img_area}>

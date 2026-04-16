@@ -11,7 +11,7 @@ const Home = () => {
   const { products, searchInput } = useProductContext();
   
   const filterList = products?.filter((item) =>
-    item.title.toLowerCase().includes(searchInput.toLowerCase())
+    item?.title?.toLowerCase().includes(searchInput.toLowerCase())
   );
 
   const [currentPage, setCurrentPage] = useState(1);

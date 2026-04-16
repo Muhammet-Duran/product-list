@@ -1,8 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
-
-import { discountPrice } from "../helpers/discountPrice";
-import { generateLink } from "./../helpers/generateLink";
+import { discountPrice } from "../Helpers/discountPrice";
+import { generateLink } from "../Helpers/generateLink";
 const ProductContext = createContext();
 
 export const ProductContextProvider = (props) => {
@@ -10,19 +9,37 @@ export const ProductContextProvider = (props) => {
   const [cartList, setCartList] = useState([]);
   const [openFilter, setOpenFilter] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null)
-  const [searchInput, setSearchInput] = useState('');
+  const [error, setError] = useState(null);
+  const [searchInput, setSearchInput] = useState("");
 
-  
   const [selectedCategories, setselectedCategories] = useState({
     category: [],
     color: [],
     brand: [],
   });
 
-  const filterCategories = [{title:"headset"}, {title:"notebook"}, {title:"phone"}];
-  const filterColors = [{title:"black"},{title:"blue"},{title: "gold"},{title:"cream"},{title:"white"},{title:"silver"},{title:"ivory"},{title:"pink"}];
-  const filterBrands = [{title:"Sony"}, {title:"Jbl"}, {title:"Samsung"}, {title:"Huawei"}, {title:"Asus"}];
+  const filterCategories = [
+    { title: "headset" },
+    { title: "notebook" },
+    { title: "phone" },
+  ];
+  const filterColors = [
+    { title: "black" },
+    { title: "blue" },
+    { title: "gold" },
+    { title: "cream" },
+    { title: "white" },
+    { title: "silver" },
+    { title: "ivory" },
+    { title: "pink" },
+  ];
+  const filterBrands = [
+    { title: "Sony" },
+    { title: "Jbl" },
+    { title: "Samsung" },
+    { title: "Huawei" },
+    { title: "Asus" },
+  ];
   const categories = {
     category: filterCategories,
     color: filterColors,
@@ -32,24 +49,39 @@ export const ProductContextProvider = (props) => {
   const filterValues = [
     { categoryTitle: "Category", titleArea: filterCategories },
     { categoryTitle: "Color", titleArea: filterColors },
-    { categoryTitle: "Brand", titleArea: filterBrands }
+    { categoryTitle: "Brand", titleArea: filterBrands },
   ];
 
   const [filterValue, setFilterValue] = useState(filterValues);
 
-  const handleActiveTitle = (title) => {
-    const newList = filterValue?.map((item)=>({...item, titleArea:item.titleArea.map(el=>el.title === title ?{...el, active : !el.active} :el)}))
-    setFilterValue(newList)
-  
+  const clearAllFilters = () => {
+    // Tüm filtreleri temizle
+    setselectedCategories({
+      category: [],
+      color: [],
+      brand: [],
+    });
+    // Tüm active durumlarını false yap
+    const resetFilters = filterValues.map((item) => ({
+      ...item,
+      titleArea: item.titleArea.map((el) => ({ ...el, active: false })),
+    }));
+    setFilterValue(resetFilters);
   };
 
+  const handleActiveTitle = (title) => {
+    const newList = filterValue?.map((item) => ({
+      ...item,
+      titleArea: item.titleArea.map((el) =>
+        el.title === title ? { ...el, active: !el.active } : el,
+      ),
+    }));
+    setFilterValue(newList);
+  };
 
   const onSearchValue = (e) => {
     setSearchInput(e.target.value);
-
   };
-  
-  
 
   const handleMenuToggle = () => {
     setOpenFilter(!openFilter);
@@ -75,6 +107,7 @@ export const ProductContextProvider = (props) => {
 
   useEffect(() => {
     getProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCategories]);
 
   //Add to Cart Item
@@ -95,14 +128,13 @@ export const ProductContextProvider = (props) => {
   }, []);
 
   useEffect(() => {
-    
     localStorage.setItem("myCartList", JSON.stringify(cartList));
-  }, [cartList.length]);
+  }, [cartList]);
 
   //Remove to Cart Item
   const removeToCart = (product) => {
     const newList = cartList.filter(
-      (item) => item.productId !== product.productId
+      (item) => item.productId !== product.productId,
     );
     setCartList(newList);
   };
@@ -118,7 +150,7 @@ export const ProductContextProvider = (props) => {
                 ? cartItem.quantity
                 : cartItem.count + 1,
           }
-        : cartItem
+        : cartItem,
     );
     setCartList(newList);
   };
@@ -128,16 +160,11 @@ export const ProductContextProvider = (props) => {
     const newList = cartList.map((cartItem) =>
       cartItem.productId === product.productId
         ? { ...cartItem, count: cartItem.count > 1 ? cartItem.count - 1 : 1 }
-        : cartItem
+        : cartItem,
     );
 
     setCartList(newList);
   };
-
-
-  
- 
-  
 
   // Total Cart Amount
   const totalCartCost = cartList
@@ -145,7 +172,7 @@ export const ProductContextProvider = (props) => {
       (total, product) =>
         (total =
           total + parseInt(discountPrice(product)) * parseInt(product.count)),
-      0
+      0,
     )
     .toFixed(2);
 
@@ -172,8 +199,9 @@ export const ProductContextProvider = (props) => {
         categories,
         filterValue,
         handleActiveTitle,
+        clearAllFilters,
         searchInput,
-        onSearchValue
+        onSearchValue,
       }}
     >
       {props.children}
