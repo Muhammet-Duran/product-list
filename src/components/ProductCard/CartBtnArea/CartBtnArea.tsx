@@ -3,9 +3,14 @@ import Button from "../../Button/Button";
 import Modal from "../../Modal/Modal";
 import styles from "./CartBtnArea.module.scss";
 import { useProductContext } from "../../../contexts/ProductContext";
+import { CartItem } from "../../../types";
 
-const CartBtnArea = ({ product }) => {
-  const [openModal, setOpenModal] = useState(false);
+interface CartBtnAreaProps {
+  product: CartItem;
+}
+
+const CartBtnArea: React.FC<CartBtnAreaProps> = ({ product }) => {
+  const [openModal, setOpenModal] = useState<boolean>(false);
   const { increaseToCart, decreaseToCart } = useProductContext();
 
   return (

@@ -1,16 +1,16 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import cn from "classnames";
 import FilterList from "./FilterList/FilterList";
 import { useProductContext } from "../../contexts/ProductContext";
 import styles from "./Sidebar.module.scss";
 import useWindowSize from "../../hooks/useWindowSize";
 
-const Sidebar = () => {
-  const { openFilter, setOpenFilter, categories, filterValue, clearAllFilters, selectedCategories} =
+const Sidebar: React.FC = () => {
+  const { openFilter, setOpenFilter, categories, filterValue, clearAllFilters, selectedCategories } =
     useProductContext();
   const size = useWindowSize();
   
-  // Herhangi bir filtre seçili mi kontrol et
+  // Check if any filter is active
   const hasActiveFilters = selectedCategories.category.length > 0 || 
                           selectedCategories.color.length > 0 || 
                           selectedCategories.brand.length > 0;
@@ -19,9 +19,10 @@ const Sidebar = () => {
     if (size.width > 991 && openFilter) {
       setOpenFilter(false);
     }
-  }, [size, openFilter, setOpenFilter]);
+  }, [size.width, openFilter, setOpenFilter]);
+  
   return (
-    <div className={cn(styles.sidebar, `${openFilter && styles?.["show"]}`)}>
+    <div className={cn(styles.sidebar, openFilter && styles.show)}>
       <div className={styles.sidebar__inner}>
         {hasActiveFilters && (
           <button className={styles.clear_all_btn} onClick={clearAllFilters}>

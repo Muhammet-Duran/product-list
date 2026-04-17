@@ -2,13 +2,21 @@ import React from "react";
 import styles from "./Modal.module.scss";
 import Button from "../Button/Button";
 import { useProductContext } from "../../contexts/ProductContext";
+import { CartItem } from "../../types";
 
-const Modal = ({ closeModal, product }) => {
+interface ModalProps {
+  closeModal: (value: boolean) => void;
+  product: CartItem;
+}
+
+const Modal: React.FC<ModalProps> = ({ closeModal, product }) => {
   const { removeToCart } = useProductContext();
-  const removeToCartHandle = () => {
+  
+  const removeToCartHandle = (): void => {
     removeToCart(product);
     closeModal(false);
   };
+  
   return (
     <div className={styles.modal_background}>
       <div className={styles.modal_container}>
@@ -30,9 +38,7 @@ const Modal = ({ closeModal, product }) => {
           </Button>
           <Button
             preferences="modal_btn"
-            onClick={() => {
-              closeModal(false);
-            }}
+            onClick={() => closeModal(false)}
           >
             no
           </Button>

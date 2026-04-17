@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
-import Button from "../Button/Button";
 import cn from "classnames";
-import { GrFormNext } from "react-icons/gr";
-import { GrFormPrevious } from "react-icons/gr";
+import Button from "../Button/Button";
+import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import styles from "./Pagination.module.scss";
-const Pagination = ({ pages, setCurrentPage, currentProducts, products }) => {
-  const [currentButton, setCurrentButton] = useState(1);
-  const numofPages = [];
+import { PaginationProps } from "../../types";
+
+const Pagination: React.FC<PaginationProps> = ({ 
+  pages, 
+  setCurrentPage, 
+  currentProducts, 
+  products 
+}) => {
+  const [currentButton, setCurrentButton] = useState<number>(1);
+  
+  const numofPages: number[] = [];
   for (let i = 1; i <= pages; i++) {
     numofPages.push(i);
   }
@@ -15,6 +22,7 @@ const Pagination = ({ pages, setCurrentPage, currentProducts, products }) => {
     setCurrentPage(currentButton);
     window.scrollTo(0, 0);
   }, [currentButton, setCurrentPage]);
+  
   return (
     <div className={cn("container", styles.pagination_wrapper)}>
       <div className={styles.pagination}>
@@ -25,10 +33,7 @@ const Pagination = ({ pages, setCurrentPage, currentProducts, products }) => {
           <li className={styles.pagination__list__item}>
             <Button
               preferences="page_btn"
-              className={styles.pagination__list__item__number}
-              classNames={` ${styles.btn_pagination} ${
-                currentButton === 1 ? styles.disabled : ""
-              }`}
+              classNames={cn(styles.btn_pagination, currentButton === 1 && styles.disabled)}
               onClick={() => {
                 setCurrentButton((prev) => (prev === 1 ? prev : prev - 1));
               }}
@@ -43,10 +48,7 @@ const Pagination = ({ pages, setCurrentPage, currentProducts, products }) => {
               <li key={index} className={styles.pagination__list__item}>
                 <Button
                   preferences="page_btn"
-                  className={styles.pagination__list__item__number}
-                  classNames={` ${styles.btn_pagination} ${
-                    currentButton === page ? styles.active : ""
-                  }`}
+                  classNames={cn(styles.btn_pagination, currentButton === page && styles.active)}
                   onClick={() => setCurrentButton(page)}
                 >
                   {page}
@@ -57,10 +59,10 @@ const Pagination = ({ pages, setCurrentPage, currentProducts, products }) => {
           <li className={styles.pagination__list__item}>
             <Button
               preferences="page_btn"
-              className={styles.pagination__list__item__number}
-              classNames={` ${styles.btn_pagination} ${
-                currentButton === numofPages.length ? styles.disabled : ""
-              }`}
+              classNames={cn(
+                styles.btn_pagination, 
+                currentButton === numofPages.length && styles.disabled
+              )}
               onClick={() =>
                 setCurrentButton((prev) =>
                   prev === numofPages.length ? prev : prev + 1

@@ -1,21 +1,22 @@
 import React, { useState } from "react";
+import cn from "classnames";
 import { useProductContext } from "../../contexts/ProductContext";
 import SearchArea from "../Form/SearchArea";
 import styles from "./ViewArea.module.scss";
 import Button from "../Button/Button";
 import { MdFilterListAlt } from "react-icons/md";
-import cn from "classnames";
+import { ViewAreaProps } from "../../types";
 
-const ViewArea = ({ handleViewChange }) => {
-  const [activeView, setActiveView] = useState(1);
+const ViewArea: React.FC<ViewAreaProps> = ({ handleViewChange }) => {
+  const [activeView, setActiveView] = useState<number>(1);
   const { products, handleMenuToggle } = useProductContext();
 
-  const onClickChange = (column, index) => {
+  const onClickChange = (column: string, index: number): void => {
     handleViewChange(column);
     setActiveView(index);
   };
 
-  const gridNumber = [3, 4, 5];
+  const gridNumber: number[] = [3, 4, 5];
 
   return (
     <div className={cn("container", styles.options)}>
@@ -39,9 +40,7 @@ const ViewArea = ({ handleViewChange }) => {
             key={index}
             onClick={() => onClickChange(`col_${el}`, index)}
             preferences="grid_btn"
-            classNames={`${styles.btn_light} ${
-              activeView === index ? styles.active : " "
-            }`}
+            classNames={cn(styles.btn_light, activeView === index && styles.active)}
           >
             {el}
           </Button>

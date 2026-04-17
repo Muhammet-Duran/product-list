@@ -1,4 +1,6 @@
-export const products = [
+import { Product } from '../types';
+
+export const products: Product[] = [
   {
     "productId": "41f8d6c4-3073-439b-af9f-d8a56e1647d3",
     "title": "Headset Black",

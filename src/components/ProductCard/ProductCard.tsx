@@ -1,21 +1,26 @@
 import React, { Fragment } from "react";
-import styles from "./ProductCard.module.scss";
 import cn from "classnames";
+import styles from "./ProductCard.module.scss";
 import Button from "../Button/Button";
 import CartBtnArea from "./CartBtnArea/CartBtnArea";
 import { discountPrice } from "../../Helpers/discountPrice";
 import { useProductContext } from "../../contexts/ProductContext";
+import { Product, CartItem } from "../../types";
 
-const ProductCard = ({ product, isCart }) => {
+interface ProductCardProps {
+  product: Product | CartItem;
+  isCart?: boolean;
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ product, isCart = false }) => {
   const { addToCart } = useProductContext();
+  
+  const isCartItem = (item: Product | CartItem): item is CartItem => {
+    return 'count' in item;
+  };
 
   return (
-    <li
-      className={cn(
-        styles.product_card,
-        `${isCart ? styles?.["flex_row"] : ""}`,
-      )}
-    >
+    <li className={cn(styles.product_card, isCart && styles.flex_row)}>
       <div className={styles.product_card__img_area}>
         <img
           src={product.imgUrl}
@@ -63,21 +68,25 @@ const ProductCard = ({ product, isCart }) => {
         </div>
       </div>
       {!isCart ? (
-        <Button preferences="act_btn" onClick={() => addToCart(product)}>
+        <Button preferences="act_btn" onClick={() => addToCart(product as Product)}>
           Add to Cart
         </Button>
       ) : (
         <Fragment>
-          <span className={styles.piece_area}>
-            Quantity : <span>{product.quantity - product.count}</span>
-          </span>
-          <CartBtnArea product={product} />
-          <span className={`${styles.piece_area} ${styles.sum_price}`}>
-            TOTAL :{" "}
-            <span>
-              {(product.count * discountPrice(product)).toFixed(2)} &#8378;
-            </span>
-          </span>
+          {isCartItem(product) && (
+            <>
+              <span className={styles.piece_area}>
+                Quantity : <span>{product.quantity - product.count}</span>
+              </span>
+              <CartBtnArea product={product} />
+              <span className={`${styles.piece_area} ${styles.sum_price}`}>
+                TOTAL :{" "}
+                <span>
+                  {(product.count * discountPrice(product)).toFixed(2)} &#8378;
+                </span>
+              </span>
+            </>
+          )}
         </Fragment>
       )}
     </li>
