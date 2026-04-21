@@ -17,8 +17,4 @@ export type UseWindowSizeReturn = WindowSize;
 // Local Storage Hook
 // ============================================
 
-export type UseLocalStorageReturn<T> = [
-  T,
-  (value: T) => void,
-  () => void
-];
+export type UseLocalStorageReturn<T> = [T, (value: T) => void, () => void];

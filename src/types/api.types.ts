@@ -2,7 +2,7 @@
  * API-specific Type Definitions
  */
 
-import { Product } from './index';
+import { Product } from "./index";
 
 // ============================================
 // Request Types

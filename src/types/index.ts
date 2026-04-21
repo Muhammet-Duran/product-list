@@ -1,7 +1,17 @@
-/**
- * Core Type Definitions
- * Centralized type definitions for the entire application
- */
+// ============================================
+// Filter & Sort Types
+// ============================================
+
+// Order by price and name: default, price ascending/descending, name ascending/descending
+export type SortOrder =
+  | "default"
+  | "price_asc"
+  | "price_desc"
+  | "name_asc"
+  | "name_desc";
+
+// Selected category type for filtering
+export type SelectedCategory = string | null;
 
 // ============================================
 // Product Types
@@ -19,19 +29,25 @@ export interface Product {
   quantity: number;
 }
 
-export type ProductCategory = 'headset' | 'notebook' | 'phone';
+export type ProductCategory = "headset" | "notebook" | "phone";
 
-export type ProductColor = 
-  | 'black' 
-  | 'blue' 
-  | 'gold' 
-  | 'cream' 
-  | 'white' 
-  | 'silver' 
-  | 'ivory' 
-  | 'pink';
+export type ProductColor =
+  | "black"
+  | "blue"
+  | "gold"
+  | "cream"
+  | "white"
+  | "silver"
+  | "ivory"
+  | "pink";
 
-export type ProductBrand = 'Sony' | 'Jbl' | 'Samsung' | 'Huawei' | 'Asus' | 'Apple';
+export type ProductBrand =
+  | "Sony"
+  | "Jbl"
+  | "Samsung"
+  | "Huawei"
+  | "Asus"
+  | "Apple";
 
 // ============================================
 // Cart Types
@@ -83,7 +99,11 @@ export interface ProductContextValue {
   filterValue: FilterCategory[];
   categories: FilterCategories;
   totalCartCost: string;
-  
+  // Filtre & Sıralama
+  sortOrder: SortOrder;
+  setSortOrder: (order: SortOrder) => void;
+  filteredAndSortedProducts: Product[];
+
   // Actions
   setProducts: (products: Product[]) => void;
   addToCart: (product: Product) => void;
@@ -92,7 +112,11 @@ export interface ProductContextValue {
   removeToCart: (product: CartItem) => void;
   getProducts: () => Promise<void>;
   setOpenFilter: (open: boolean) => void;
-  generateLink: (category: string[], color: string[], brand: string[]) => Promise<Product[]>;
+  generateLink: (
+    category: string[],
+    color: string[],
+    brand: string[]
+  ) => Promise<Product[]>;
   setselectedCategories: (categories: SelectedCategories) => void;
   handleMenuToggle: () => void;
   handleActiveTitle: (title: string) => void;
@@ -151,7 +175,7 @@ export interface ViewAreaProps {
 export interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
-  variant?: 'primary' | 'secondary' | 'danger';
+  variant?: "primary" | "secondary" | "danger";
   disabled?: boolean;
   className?: string;
 }
@@ -172,4 +196,6 @@ export type Optional<T> = T | undefined;
 
 export type AsyncFunction<T = void> = () => Promise<T>;
 
-export type EventHandler<T = HTMLElement> = (event: React.ChangeEvent<T>) => void;
+export type EventHandler<T = HTMLElement> = (
+  event: React.ChangeEvent<T>
+) => void;
