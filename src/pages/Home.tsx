@@ -9,12 +9,17 @@ import { Product } from "../types";
 import styles from "./Page.module.scss";
 
 const Home: React.FC = () => {
-  const { products, searchInput, isLoading } = useProductContext();
-  console.log("isLoading", isLoading);
+  const {
+    filteredAndSortedProducts,
+    searchInput,
+    isLoading,
+    openFilter,
+    handleMenuToggle,
+  } = useProductContext();
 
   const filterList: Product[] =
-    products?.filter((item) =>
-      item?.title?.toLowerCase().includes(searchInput.toLowerCase()),
+    filteredAndSortedProducts?.filter((item) =>
+      item?.title?.toLowerCase().includes(searchInput.toLowerCase())
     ) || [];
 
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -33,7 +38,9 @@ const Home: React.FC = () => {
   const indexOfFirstEmployee = indexOfLastEmployee - productsPerPage;
   const currentProducts: Product[] =
     filterList?.slice(indexOfFirstEmployee, indexOfLastEmployee) || [];
-  const totalPagesNum = Math.ceil(products?.length / productsPerPage);
+  const totalPagesNum = Math.ceil(
+    filteredAndSortedProducts?.length / productsPerPage
+  );
 
   const [gridView, setGridView] = useState<string>("");
   const handleViewChange = (column: string): void => {
@@ -44,6 +51,9 @@ const Home: React.FC = () => {
 
   return (
     <Fragment>
+      {openFilter && (
+        <div className={styles.overlay} onClick={handleMenuToggle} />
+      )}
       <ViewArea handleViewChange={handleViewChange} />
       <div className={styles.home_body}>
         <Sidebar />
@@ -54,7 +64,7 @@ const Home: React.FC = () => {
         />
       </div>
       <Pagination
-        products={products}
+        products={filteredAndSortedProducts}
         pages={totalPagesNum}
         setCurrentPage={setCurrentPage}
         currentProducts={currentProducts}

@@ -1,64 +1,61 @@
 @import "./../../styles/variables.scss";
 
-.header_wrapper{
-    height: $headerHeight;
-    background-color: $headerColor;
-    &__h_area{
-        height: 100%;
-        @include d-flex(center, space-between);
-        &__logo{
-            padding: 0px 10px 8px;
-            cursor: pointer;
-            position: relative;
-            z-index: 1000;
-            .firstly{
-                color: $firstColor;
-                display:inline-block;
-                font-size: 40px;
-                transform: rotate(-30deg);
-                font-weight:700;
-                padding-right: 8px;
-
-            }
-            .others{
-                color:$white;
-                display: inline-block;
-                font-size: 30px;
-                font-weight: 600;
-                text-decoration: underline;
-                transition: all 0.3s ease;
-                @include breakpoint(md-only){
-                    &.color_black{
-                        color: $black;
-                    }
-                }
-                
-            }
+.header_wrapper {
+  height: $headerHeight;
+  background-color: $headerColor;
+  &__h_area {
+    height: 100%;
+    @include d-flex(center, space-between);
+    &__logo {
+      padding: 0px 10px 8px;
+      cursor: pointer;
+      position: relative;
+      z-index: 1000;
+      .firstly {
+        color: $firstColor;
+        display: inline-block;
+        font-size: 40px;
+        transform: rotate(-30deg);
+        font-weight: 700;
+        padding-right: 8px;
+      }
+      .others {
+        color: $white;
+        display: inline-block;
+        font-size: 30px;
+        font-weight: 600;
+        text-decoration: underline;
+        transition: all 0.3s ease;
+        @include breakpoint(md-only) {
+          &.color_black {
+            color: $black;
+          }
         }
-        &__cart{
-            cursor: pointer;
-            position: relative;
-            padding: 8px 10px;
-            &__icon{
-                color: $white;
-                font-size: 24px;
-            }
-            &__count{
-                position: absolute;
-                right: 4px;
-                top:6px;
-                width: 16px;
-                height: 16px;
-                border-radius: 50%;
-                background-color: $firstColor;
-                color: $black;
-                font-size: 11px;
-                font-weight: 600;
-                text-align: center;
-                line-height: 14px;
-                border:1px solid #B22222;
-
-            }
-        }
+      }
     }
+    &__cart {
+      cursor: pointer;
+      position: relative;
+      padding: 8px 10px;
+      &__icon {
+        color: $white;
+        font-size: 24px;
+      }
+      &__count {
+        position: absolute;
+        right: 4px;
+        top: 6px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: $firstColor;
+        color: $black;
+        font-size: 11px;
+        font-weight: 600;
+        text-align: center;
+        line-height: 14px;
+        border: 1px solid #b22222;
+      }
+    }
+  }
 }

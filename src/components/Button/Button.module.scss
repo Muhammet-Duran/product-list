@@ -1,85 +1,80 @@
 @import "./../../styles/variables.scss";
-.product_btn{
-    font-family: inherit;
-    border: none;
-    outline: none;
-    padding: 0;
-    background-color: transparent;
-    border:none;
-    cursor: pointer;
-    transition: all .3s ;
+.product_btn {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
 }
-.act_btn{
-    margin-top: $mt;
-    margin-bottom:$mt;
-    border-radius: $borderRadius;
-    background-color:lighten($headerColor, 20%);
+.act_btn {
+  margin-top: $mt;
+  margin-bottom: $mt;
+  border-radius: $borderRadius;
+  background-color: lighten($headerColor, 20%);
+  color: $white;
+  padding: 12px 0;
+  width: 100%;
+  @include breakpoint(md-only) {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  &:hover {
+    background-color: $headerColor;
+  }
+}
+.grid_btn {
+  padding: 4px 6px;
+  font-size: 14px;
+  border-bottom: 1px solid transparent;
+  font-weight: 600;
+  color: $black;
+}
+.filter_btn {
+  padding: 4px 6px;
+  transition: none;
+  margin-top: 8px;
+}
+.count_btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid $textColor;
+  font-size: 24px;
+  font-weight: 400;
+  color: $textColor;
+  @include d-flex(center, center);
+  &:hover {
+    background-color: $textColor;
     color: $white;
-    padding:12px 0;
-    width: 100%;
-    @include breakpoint(md-only){
-        padding-top: 8px;
-        padding-bottom: 8px;
-    }
-    &:hover{
-        background-color:$headerColor;
-    }
-    
-
-}
-.grid_btn{
-    padding:4px 6px;
-    font-size: 14px;
-    border-bottom: 1px solid transparent;
-    font-weight: 600;
-    color:$black;
-    
-}
-.filter_btn{
-    padding: 4px 6px;
-    transition: none;
-    margin-top: 8px;
-}
-.count_btn{
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    border:1px solid $textColor;
-    font-size: 24px;
-    font-weight: 400;
-    color: $textColor;
-    @include d-flex(center,center);
-    &:hover{
-        background-color: $textColor;
-        color: $white;
-    }
+  }
 }
 
-.page_btn{
-    border: 1px solid #000;
-    border-radius: $borderRadius;
-    padding:4px 8px;
-    color: #333;
-    &:hover{
-        border-color: $textColor;
-        
-    }
+.page_btn {
+  border: 1px solid #000;
+  border-radius: $borderRadius;
+  padding: 4px 8px;
+  color: #333;
+  &:hover {
+    border-color: $textColor;
+  }
 }
-.modal_btn{
+.modal_btn {
   padding: 6px 12px;
   margin: 10px;
   border: none;
-  background-color:$textColor;
+  background-color: $textColor;
   color: white;
   border-radius: $borderRadius;
   font-size: 16px;
-  
 }
-.filter_area_btn{
-    border:1px solid #d7dddb;
-    padding: 4px 16px;
-    border-radius: $borderRadius;
-    position: relative;
-    z-index:1000;
-    background-color: #ffffff;
+.filter_area_btn {
+  border: 1px solid #d7dddb;
+  padding: 4px 16px;
+  border-radius: $borderRadius;
+  position: relative;
+  z-index: 1000;
+  background-color: #ffffff;
 }

@@ -1,22 +1,25 @@
 import React, { Fragment } from "react";
 import cn from "classnames";
-import styles from "./ProductCard.module.scss";
 import Button from "../Button/Button";
-import CartBtnArea from "./CartBtnArea/CartBtnArea";
 import { discountPrice } from "../../Helpers/discountPrice";
 import { useProductContext } from "../../contexts/ProductContext";
 import { Product, CartItem } from "../../types";
+import CartBtnArea from "./CartBtnArea/CartBtnArea";
+import styles from "./ProductCard.module.scss";
 
 interface ProductCardProps {
   product: Product | CartItem;
   isCart?: boolean;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, isCart = false }) => {
+const ProductCard: React.FC<ProductCardProps> = ({
+  product,
+  isCart = false,
+}) => {
   const { addToCart } = useProductContext();
-  
+
   const isCartItem = (item: Product | CartItem): item is CartItem => {
-    return 'count' in item;
+    return "count" in item;
   };
 
   return (
@@ -68,7 +71,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isCart = false }) =>
         </div>
       </div>
       {!isCart ? (
-        <Button preferences="act_btn" onClick={() => addToCart(product as Product)}>
+        <Button
+          preferences="act_btn"
+          onClick={() => addToCart(product as Product)}
+        >
           Add to Cart
         </Button>
       ) : (

@@ -1,19 +1,17 @@
 @import "./../../../styles/variables.scss";
 
-  
-.btn_filter{
-    border-radius: 10px;
-    transition: all .3s ;
+.btn_filter {
+  border-radius: 10px;
+  transition: all 0.3s;
 
-    &.active{
-        background-color: $textColor;
-        color:$white;
+  &.active {
+    background-color: $textColor;
+    color: $white;
+  }
+  @include breakpoint(md) {
+    &:hover {
+      background-color: $textColor;
+      color: $white;
     }
-    @include breakpoint(md){
-        &:hover{
-            background-color: $textColor;
-            color:$white;
-        }
-    }
-    
+  }
 }

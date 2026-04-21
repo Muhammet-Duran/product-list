@@ -1,12 +1,12 @@
 import { getProductList } from "../api/productData";
 import { Product } from "../types";
 
-type FilterColumn = 'category' | 'color' | 'brand';
+type FilterColumn = "category" | "color" | "brand";
 
 // Generate link with multiple filter
 export const generateLink = async (
-  category: string[] = [], 
-  color: string[] = [], 
+  category: string[] = [],
+  color: string[] = [],
   brand: string[] = []
 ): Promise<Product[]> => {
   const template = (slug: string, column: FilterColumn): string => {
@@ -14,9 +14,7 @@ export const generateLink = async (
   };
 
   const generateFilter = (array: string[], column: FilterColumn): string => {
-    return array
-      .map((item) => template(item, column))
-      .join("&");
+    return array.map((item) => template(item, column)).join("&");
   };
 
   let categoryFilter: string | undefined;
@@ -44,11 +42,11 @@ export const generateLink = async (
   if (category.length && brand.length) {
     filter = `${categoryFilter}&${brandFilter}`;
   }
-  
+
   if (color.length && brand.length) {
     filter = `${colorFilter}&${brandFilter}`;
   }
-  
+
   if (category.length && color.length && brand.length) {
     filter = `${categoryFilter}&${colorFilter}&${brandFilter}`;
   }

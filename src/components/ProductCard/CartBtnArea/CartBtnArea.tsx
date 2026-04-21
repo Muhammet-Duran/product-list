@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Button from "../../Button/Button";
 import Modal from "../../Modal/Modal";
-import styles from "./CartBtnArea.module.scss";
 import { useProductContext } from "../../../contexts/ProductContext";
 import { CartItem } from "../../../types";
+import styles from "./CartBtnArea.module.scss";
 
 interface CartBtnAreaProps {
   product: CartItem;

@@ -3,23 +3,23 @@
 
 $lato: "Lato", sans-serif;
 
-$headerHeight:86px;
+$headerHeight: 86px;
 
 $headerColor: #0071dc;
-$bodyColor: #FFFAFA;
-$firstColor:#ffc220;
+$bodyColor: #fffafa;
+$firstColor: #ffc220;
 $white: #ffffff;
-$black:#000000;
-$textColor:#3498db;
+$black: #000000;
+$textColor: #3498db;
 $greyColor: darkslategrey;
-$borderColor:#d7dddb;
+$borderColor: #d7dddb;
 $borderRadius: 4px;
-$letterSpace:.4px;
-$boxShadow:rgba(0, 0, 0, 0.15) 0px 3px 14px 2px;
+$letterSpace: 0.4px;
+$boxShadow: rgba(0, 0, 0, 0.15) 0px 3px 14px 2px;
 
-$mt:12px;
+$mt: 12px;
 //Mixin
-@mixin d-flex($align, $justify){
+@mixin d-flex($align, $justify) {
   display: flex;
   align-items: $align;
   justify-content: $justify;
@@ -31,7 +31,7 @@ $mt:12px;
     @media (max-width: 1240px) {
       @content;
     }
-  }@else if $point == md {
+  } @else if $point == md {
     // 768px
     @media (min-width: 992px) {
       @content;
@@ -46,4 +46,3 @@ $mt:12px;
     }
   }
 }
-

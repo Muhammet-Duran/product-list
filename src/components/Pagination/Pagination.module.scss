@@ -1,40 +1,38 @@
 @import "./../../styles/variables.scss";
-.pagination_wrapper{
-    
-    padding-left: 0;
-    padding-right:12px;
+.pagination_wrapper {
+  padding-left: 0;
+  padding-right: 12px;
 }
 
-.pagination{
-    @include d-flex(flex-end,center);
-    margin-bottom: 40px;
-   
-    .info_text{
-        font-size: 16px;
-        margin-right: 20px
-        
-    }
-    &__list{
-        @include d-flex(center,center);
-        
-        &__item{
-            + .pagination__list__item{
-                margin-left: 6px;
-            }
-            .btn_pagination{
-                &.disabled{
-                    border-color:#ccc;
-                    color:#ccc;
-                }
-                &.active{
-                    border-color: $textColor;
-                }
-            }
-            &__number__page_icon{
-                height: 100%;
-                display: block;
-                font-size: 16px;
-            }
+.pagination {
+  @include d-flex(flex-end, center);
+  margin-bottom: 40px;
+
+  .info_text {
+    font-size: 16px;
+    margin-right: 20px;
+  }
+  &__list {
+    @include d-flex(center, center);
+
+    &__item {
+      + .pagination__list__item {
+        margin-left: 6px;
+      }
+      .btn_pagination {
+        &.disabled {
+          border-color: #ccc;
+          color: #ccc;
         }
+        &.active {
+          border-color: $textColor;
+        }
+      }
+      &__number__page_icon {
+        height: 100%;
+        display: block;
+        font-size: 16px;
+      }
     }
+  }
 }

@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./Page.module.scss";
 import Products from "../components/Products/Products";
 import { useProductContext } from "../contexts/ProductContext";
+import styles from "./Page.module.scss";
 
 const Cart: React.FC = () => {
   const { cartList, totalCartCost } = useProductContext();

@@ -7,4 +7,3 @@ export const fetch: AxiosInstance = Axios.create({
     "Content-Type": "application/json",
   },
 });
-

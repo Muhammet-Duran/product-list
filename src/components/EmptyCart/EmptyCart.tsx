@@ -11,10 +11,7 @@ const EmptyCart: React.FC = () => {
       <BsBagCheck className={styles.icon} />
       <h2>Your Cart is Empty</h2>
       <p>Looks like you haven't added anything to your cart yet</p>
-      <button 
-        className={styles.shop_button}
-        onClick={() => navigate("/")}
-      >
+      <button className={styles.shop_button} onClick={() => navigate("/")}>
         Start Shopping
       </button>
     </div>

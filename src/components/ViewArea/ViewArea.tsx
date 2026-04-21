@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import cn from "classnames";
+import { MdFilterListAlt } from "react-icons/md";
 import { useProductContext } from "../../contexts/ProductContext";
 import SearchArea from "../Form/SearchArea";
-import styles from "./ViewArea.module.scss";
+import SortControl from "../SortControl/SortControl";
 import Button from "../Button/Button";
-import { MdFilterListAlt } from "react-icons/md";
 import { ViewAreaProps } from "../../types";
+import styles from "./ViewArea.module.scss";
 
 const ViewArea: React.FC<ViewAreaProps> = ({ handleViewChange }) => {
   const [activeView, setActiveView] = useState<number>(1);
-  const { products, handleMenuToggle } = useProductContext();
+  const { filteredAndSortedProducts, handleMenuToggle } = useProductContext();
 
   const onClickChange = (column: string, index: number): void => {
     handleViewChange(column);
@@ -30,7 +31,7 @@ const ViewArea: React.FC<ViewAreaProps> = ({ handleViewChange }) => {
           <span className={styles.filter_text}>FILTERS</span>
         </Button>
         <span className={styles.product_count}>
-          RESULTS({products?.length})
+          RESULTS({filteredAndSortedProducts?.length})
         </span>
       </div>
       <SearchArea />
@@ -40,11 +41,15 @@ const ViewArea: React.FC<ViewAreaProps> = ({ handleViewChange }) => {
             key={index}
             onClick={() => onClickChange(`col_${el}`, index)}
             preferences="grid_btn"
-            classNames={cn(styles.btn_light, activeView === index && styles.active)}
+            classNames={cn(
+              styles.btn_light,
+              activeView === index && styles.active
+            )}
           >
             {el}
           </Button>
         ))}
+        <SortControl />
       </div>
     </div>
   );

@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import cn from "classnames";
-import Button from "../Button/Button";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
-import styles from "./Pagination.module.scss";
+import Button from "../Button/Button";
 import { PaginationProps } from "../../types";
+import styles from "./Pagination.module.scss";
 
-const Pagination: React.FC<PaginationProps> = ({ 
-  pages, 
-  setCurrentPage, 
-  currentProducts, 
-  products 
+const Pagination: React.FC<PaginationProps> = ({
+  pages,
+  setCurrentPage,
+  currentProducts,
+  products,
 }) => {
   const [currentButton, setCurrentButton] = useState<number>(1);
-  
+
   const numofPages: number[] = [];
   for (let i = 1; i <= pages; i++) {
     numofPages.push(i);
@@ -22,7 +22,7 @@ const Pagination: React.FC<PaginationProps> = ({
     setCurrentPage(currentButton);
     window.scrollTo(0, 0);
   }, [currentButton, setCurrentPage]);
-  
+
   return (
     <div className={cn("container", styles.pagination_wrapper)}>
       <div className={styles.pagination}>
@@ -33,7 +33,10 @@ const Pagination: React.FC<PaginationProps> = ({
           <li className={styles.pagination__list__item}>
             <Button
               preferences="page_btn"
-              classNames={cn(styles.btn_pagination, currentButton === 1 && styles.disabled)}
+              classNames={cn(
+                styles.btn_pagination,
+                currentButton === 1 && styles.disabled
+              )}
               onClick={() => {
                 setCurrentButton((prev) => (prev === 1 ? prev : prev - 1));
               }}
@@ -48,7 +51,10 @@ const Pagination: React.FC<PaginationProps> = ({
               <li key={index} className={styles.pagination__list__item}>
                 <Button
                   preferences="page_btn"
-                  classNames={cn(styles.btn_pagination, currentButton === page && styles.active)}
+                  classNames={cn(
+                    styles.btn_pagination,
+                    currentButton === page && styles.active
+                  )}
                   onClick={() => setCurrentButton(page)}
                 >
                   {page}
@@ -60,7 +66,7 @@ const Pagination: React.FC<PaginationProps> = ({
             <Button
               preferences="page_btn"
               classNames={cn(
-                styles.btn_pagination, 
+                styles.btn_pagination,
                 currentButton === numofPages.length && styles.disabled
               )}
               onClick={() =>

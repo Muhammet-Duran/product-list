@@ -1,37 +1,50 @@
 @import "./../styles/variables.scss";
 
-.page{
-height: 100px;
-@include d-flex(center, center);
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  display: none;
 
-&__title{
+  @include breakpoint(md-only) {
+    display: block;
+  }
+}
+
+.page {
+  height: 100px;
+  @include d-flex(center, center);
+
+  &__title {
     font-size: 36px;
     padding: 10px;
     border-radius: 20px;
     background-color: $firstColor;
-    
+  }
 }
+.home_body {
+  @include d-flex(flex-start, center);
+  max-width: 1660px;
+  width: 100%;
+  padding-bottom: 24px;
+  .col_3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .col_4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .col_5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
-.home_body{
-    @include d-flex(flex-start, center);
-    max-width: 1660px;
-    width: 100%;
-    padding-bottom: 24px;
-    .col_3{
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .col_4{
-        grid-template-columns: repeat(4, 1fr);
-    }
-    .col_5{
-        grid-template-columns: repeat(5, 1fr);
-    }
-    
-}
-.total_price{
-    @include d-flex(center, flex-end);
-    text-decoration: underline;
-    margin-top: 12px;
-    color: $textColor;
-    padding-right: 10px;
+.total_price {
+  @include d-flex(center, flex-end);
+  text-decoration: underline;
+  margin-top: 12px;
+  color: $textColor;
+  padding-right: 10px;
 }

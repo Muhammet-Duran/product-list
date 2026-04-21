@@ -4,21 +4,20 @@
 body {
   width: 100%;
   font-family: $lato;
-  background-color:$white;
+  background-color: $white;
   height: 100%;
- 
 }
 #root {
   height: 100%;
 }
-.container{
+.container {
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
   padding-left: 40px;
   padding-right: 40px;
-  @include breakpoint(md-only){
+  @include breakpoint(md-only) {
     padding-left: 10px;
     padding-right: 10px;
-}
+  }
 }

@@ -4,8 +4,8 @@ import ProductCard from "../ProductCard/ProductCard";
 import NotFound from "../NotFound/NotFound";
 import EmptyCart from "../EmptyCart/EmptyCart";
 import Loading from "../Loading/Loading";
-import styles from "./Products.module.scss";
 import { Product, CartItem } from "../../types";
+import styles from "./Products.module.scss";
 
 interface ProductsProps {
   products: Product[] | CartItem[];
@@ -14,11 +14,11 @@ interface ProductsProps {
   isLoading?: boolean;
 }
 
-const Products: React.FC<ProductsProps> = ({ 
-  products, 
-  preferences, 
+const Products: React.FC<ProductsProps> = ({
+  products,
+  preferences,
   isCart = false,
-  isLoading = false 
+  isLoading = false,
 }) => {
   return (
     <ul

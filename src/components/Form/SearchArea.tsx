@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./SearchArea.module.scss";
 import { useProductContext } from "../../contexts/ProductContext";
+import styles from "./SearchArea.module.scss";
 
 const SearchArea: React.FC = () => {
   const { onSearchValue, searchInput } = useProductContext();

@@ -1,26 +1,33 @@
 import React, { useEffect } from "react";
 import cn from "classnames";
-import FilterList from "./FilterList/FilterList";
 import { useProductContext } from "../../contexts/ProductContext";
-import styles from "./Sidebar.module.scss";
 import useWindowSize from "../../hooks/useWindowSize";
+import FilterList from "./FilterList/FilterList";
+import styles from "./Sidebar.module.scss";
 
 const Sidebar: React.FC = () => {
-  const { openFilter, setOpenFilter, categories, filterValue, clearAllFilters, selectedCategories } =
-    useProductContext();
+  const {
+    openFilter,
+    setOpenFilter,
+    categories,
+    filterValue,
+    clearAllFilters,
+    selectedCategories,
+  } = useProductContext();
   const size = useWindowSize();
-  
+
   // Check if any filter is active
-  const hasActiveFilters = selectedCategories.category.length > 0 || 
-                          selectedCategories.color.length > 0 || 
-                          selectedCategories.brand.length > 0;
-  
+  const hasActiveFilters =
+    selectedCategories.category.length > 0 ||
+    selectedCategories.color.length > 0 ||
+    selectedCategories.brand.length > 0;
+
   useEffect(() => {
     if (size.width > 991 && openFilter) {
       setOpenFilter(false);
     }
   }, [size.width, openFilter, setOpenFilter]);
-  
+
   return (
     <div className={cn(styles.sidebar, openFilter && styles.show)}>
       <div className={styles.sidebar__inner}>
