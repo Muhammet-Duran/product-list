@@ -1,0 +1,24 @@
+# Dependencies
+node_modules
+package-lock.json
+
+# Build outputs
+build
+dist
+.next
+out
+
+# Cache
+.cache
+.parcel-cache
+
+# Misc
+.DS_Store
+*.log
+.env
+.env.local
+.env.production
+
+# Git
+.git
+.gitignore

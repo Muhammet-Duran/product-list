@@ -26,12 +26,21 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "type-check": "tsc --noEmit",
-    "type-check:watch": "tsc --noEmit --watch"
+    "type-check:watch": "tsc --noEmit --watch",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,json,scss,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,json,scss,md}\"",
+    "fix": "prettier --write \"src/**/*.{ts,tsx,json,scss,md}\" && eslint src --ext .ts,.tsx --fix && tsc --noEmit",
+    "prepare": "husky install"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,scss}": [
+      "prettier --write"
     ]
   },
   "browserslist": {
@@ -51,6 +60,14 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/react-router-dom": "^5.3.3",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.3",
     "typescript": "^6.0.2"
   }
 }
