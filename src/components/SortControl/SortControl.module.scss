@@ -1,0 +1,46 @@
+.sort_control {
+  display: flex;
+  align-items: center;
+  margin-left: 0.75rem;
+
+  .sort_select {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 4px;
+    background: white;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 160px;
+
+    &:hover {
+      border-color: var(--primary-color, #007bff);
+    }
+
+    &:focus {
+      outline: 2px solid var(--primary-color, #007bff);
+      outline-offset: 2px;
+      border-color: var(--primary-color, #007bff);
+    }
+
+    // Remove default arrow in IE
+    &::-ms-expand {
+      display: none;
+    }
+  }
+}
+
+// Mobile responsive styles
+@media (max-width: 768px) {
+  .sort_control {
+    width: 100%;
+    margin-left: 0;
+
+    .sort_select {
+      width: 100%;
+      min-width: unset;
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+  }
+}
