@@ -36,7 +36,7 @@ ${JSON.stringify(cartItems, null, 2)}`;
   systemPrompt += `
 
 Rules:
-- Answer in Turkish
+- ALWAYS answer in English only
 - Keep responses short and friendly, maximum 3-4 sentences
 - Mention prices and features in product recommendations
 - Consider items in the cart
