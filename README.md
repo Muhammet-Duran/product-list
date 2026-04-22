@@ -16,6 +16,7 @@ A modern, fully-typed React e-commerce application with advanced filtering, sort
 - **Search Functionality** with instant results
 - **Shopping Cart** with localStorage persistence
 - **URL State Sync** for shareable links
+- **AI Shopping Assistant** with Gemini integration
 - **Responsive Design** (Mobile, Tablet, Desktop)
 
 ### 🔧 Technical Features
@@ -25,6 +26,8 @@ A modern, fully-typed React e-commerce application with advanced filtering, sort
 - **Custom Hooks** for reusable logic
 - **SCSS Modules** for scoped styling
 - **Code Quality Tools** (ESLint, Prettier, Husky)
+- **AI Integration** (Google Gemini API)
+- **Production-Ready Error Handling** with retry logic
 - **Mock API** with real API ready structure
 
 ---
@@ -56,6 +59,8 @@ A modern, fully-typed React e-commerce application with advanced filtering, sort
 - Axios
 - LocalStorage
 - Mock API with 500ms delay
+- Google Gemini AI API
+- Production-grade retry logic
 
 ---
 
@@ -77,6 +82,12 @@ cd product-list
 
 # Install dependencies
 npm install
+
+# Create environment file
+cp .env.example .env
+
+# Add your Gemini API key to .env
+REACT_APP_GEMINI_API_KEY=your_api_key_here
 
 # Start development server
 npm start
@@ -118,19 +129,25 @@ src/
 │   ├── SortControl/       # Product sorting dropdown
 │   ├── Sidebar/           # Filter sidebar
 │   ├── Products/          # Product grid
+│   ├── ChatWidget.tsx     # AI chat assistant
+│   ├── ChatMessage.tsx    # Chat message component
 │   └── ...
 ├── contexts/              # React Context
-│   └── ProductContext.tsx # Global state management
+│   ├── ProductContext.tsx # Global state management
+│   └── ChatContext.tsx    # Chat state management
 ├── hooks/                 # Custom hooks
 │   ├── useCart.ts         # Cart logic
 │   ├── useProductFiltering.ts  # Filter & sort logic
 │   └── useWindowSize.ts   # Responsive utilities
+├── services/              # External services
+│   └── geminiService.ts   # AI API integration
 ├── constants/             # App constants
 │   └── filterOptions.ts   # Filter configurations
 ├── types/                 # TypeScript definitions
 │   ├── index.ts           # Core types
 │   ├── api.types.ts       # API types
-│   └── hooks.types.ts     # Hook types
+│   ├── hooks.types.ts     # Hook types
+│   └── chat.types.ts      # Chat & AI types
 ├── pages/                 # Page components
 │   ├── Home.tsx           # Product listing page
 │   └── Cart.tsx           # Shopping cart page
@@ -175,13 +192,45 @@ Filter by multiple criteria:
 - Tablet: Adaptive grid system
 - Desktop: Full-featured interface
 
+### **5. AI Shopping Assistant**
+
+**Powered by Google Gemini AI:**
+
+- **Smart Product Recommendations** based on user queries
+- **Cart-Aware Responses** considering current cart items
+- **Turkish Language Support** for local users
+- **Scope-Limited AI** (only shopping-related questions)
+- **Production-Grade Error Handling** with automatic fallback
+- **Rate Limiting** to prevent API abuse
+
+**Features:**
+
+- Real-time chat interface
+- Typing indicators
+- Message history
+- Floating chat widget
+- Mobile-optimized design
+
+**Example Queries:**
+
+- "Telefon öner" (Recommend a phone)
+- "Sepetim ne kadar?" (How much is my cart?)
+- "En ucuz laptop hangisi?" (Which is the cheapest laptop?)
+
+**Technical Implementation:**
+
+- Multiple Gemini model fallback (2.0-flash-lite → flash-lite-latest → 2.5-flash-lite)
+- Exponential backoff retry logic
+- User-friendly error messages
+- Type-safe API integration
+
 ---
 
 ## 🔌 API Configuration
 
-### **Current Setup: Mock API**
+### **Current Setup: Mock API + AI Integration**
 
-The app uses a mock API with local data for development.
+The app uses a mock API with local data for development and integrates with Google Gemini AI for the shopping assistant.
 
 **Features:**
 
@@ -189,26 +238,57 @@ The app uses a mock API with local data for development.
 - ✅ Async/await structure
 - ✅ Easy migration to real API
 - ✅ Axios configured
+- ✅ Google Gemini AI integration
+- ✅ Production-grade error handling
+
+### **Environment Variables**
+
+Create a `.env` file in the root directory:
+
+```env
+# Base API URL (for future real API)
+REACT_APP_BASE_URL=http://localhost:3002
+
+# Google Gemini AI API Key (required for chat assistant)
+REACT_APP_GEMINI_API_KEY=your_gemini_api_key_here
+
+# Gemini API Base URL
+REACT_APP_GEMINI_BASE_URL=https://generativelanguage.googleapis.com/v1
+```
+
+### **Getting Gemini API Key**
+
+1. Visit [Google AI Studio](https://aistudio.google.com/app/apikey)
+2. Create a new API key
+3. Copy the key to your `.env` file
+4. Restart the development server
+
+**Free Tier Limits:**
+
+- 1,500 requests/day
+- 15 requests/minute
+- Completely free (no credit card required)
 
 ### **Switching to Real API**
 
-1. Create `.env` file:
-
-```env
-REACT_APP_BASE_URL=https://your-api.com/api
-```
-
+1. Update `REACT_APP_BASE_URL` in `.env`
 2. Open `src/api/productData.ts`
-
 3. Uncomment the real API code
-
 4. Restart the app
 
 ### **API Endpoints**
 
+**Product API:**
+
 ```
 GET /products
 GET /products?category=phone&color=black&brand=Samsung
+```
+
+**AI Chat API:**
+
+```
+POST https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent
 ```
 
 **Response Format:**
