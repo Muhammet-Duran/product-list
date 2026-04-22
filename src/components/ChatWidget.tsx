@@ -41,7 +41,7 @@ const ChatWidget: React.FC = () => {
     setInputText("");
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
     if (e.key === "Enter") {
       handleSendMessage();
     }
@@ -69,9 +69,9 @@ const ChatWidget: React.FC = () => {
         <div className={styles.chat_popup}>
           {/* Header */}
           <div className={styles.chat_header}>
-            <h3>🛒 Alışveriş Asistanı</h3>
+            <h3>🛒 Shopping Assistant</h3>
             <button className={styles.clear_chat_btn} onClick={clearChat}>
-              Sohbeti Temizle
+              Clear Chat
             </button>
           </div>
 
@@ -79,7 +79,7 @@ const ChatWidget: React.FC = () => {
           <div className={styles.chat_messages}>
             {messages.length === 0 ? (
               <div className={styles.welcome_message}>
-                Merhaba! Ürünler veya sepetiniz hakkında soru sorabilirsiniz 👋
+                Hello! You can ask questions about products or your cart 👋
               </div>
             ) : (
               messages.map((message) => (
@@ -97,8 +97,8 @@ const ChatWidget: React.FC = () => {
               type="text"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              onKeyPress={handleKeyPress}
-              placeholder="Mesajınızı yazın..."
+              onKeyDown={handleKeyDown}
+              placeholder="Type your message..."
               disabled={isLoading}
               className={styles.chat_input}
             />
@@ -107,7 +107,7 @@ const ChatWidget: React.FC = () => {
               disabled={isLoading || !inputText.trim()}
               className={styles.send_btn}
             >
-              Gönder
+              Send
             </button>
           </div>
         </div>
