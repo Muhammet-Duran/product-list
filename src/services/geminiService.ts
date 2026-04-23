@@ -57,8 +57,8 @@ IMPORTANT - Off-topic Questions:
     "gemini-2.5-flash-lite", // Newest but might be busy
   ];
 
-  const MAX_RETRIES = 1; // Reduce from 2 to 1 for faster fallback
-  const INITIAL_DELAY = 500; // Reduce from 1000ms to 500ms
+  const MAX_RETRIES = 1;
+  const INITIAL_DELAY = 500;
 
   // User-friendly error messages
   const ERROR_MESSAGES: ErrorMessagesMap = {
@@ -144,72 +144,45 @@ IMPORTANT - Off-topic Questions:
         const result = await makeRequest(modelName);
 
         if (result.success && result.text) {
-          if (retry > 0 || modelIndex > 0) {
-            console.log(
-              `✓ Başarılı: ${modelName} (${retry} retry, ${modelIndex} fallback)`
-            );
-          }
           return result.text;
         }
 
-        // Handle specific error codes
         const { status } = result;
 
         if (!status) {
           throw new Error("Unexpected error: Status code not found");
         }
 
-        // 429 (Rate Limit) - skip retry, go to next model immediately for faster response
         if (status === 429) {
-          console.log(
-            `⚠ ${modelName} quota exceeded (429), trying next model immediately...`
-          );
           break; // Skip retry, try next model
         }
 
-        // 503 (Service Unavailable) - retry with backoff
         if (status === 503) {
           if (retry < MAX_RETRIES) {
             const backoffDelay = INITIAL_DELAY * Math.pow(2, retry);
-            console.log(
-              `⏳ ${modelName} busy (${status}), retrying in ${backoffDelay}ms...`
-            );
             await delay(backoffDelay);
-            continue; // Retry same model
+            continue;
           } else {
-            console.log(`⚠ ${modelName} failed, trying next model...`);
-            break; // Try next model
+            break;
           }
         }
 
-        // 400, 404 - don't retry, try next model immediately
         if (status === 400 || status === 404) {
-          console.log(
-            `✗ ${modelName} unavailable (${status}), trying next model...`
-          );
           break;
         }
 
-        // Other errors - throw immediately
         const userMessage =
           ERROR_MESSAGES[status as keyof ErrorMessagesMap] ||
           ERROR_MESSAGES.default;
         throw new Error(userMessage);
       } catch (error) {
-        // Network error or unexpected error
         if (retry < MAX_RETRIES) {
           const backoffDelay = INITIAL_DELAY * Math.pow(2, retry);
-          console.log(`⚠ Network error, retrying in ${backoffDelay}ms...`);
           await delay(backoffDelay);
           continue;
         } else if (modelIndex < models.length - 1) {
-          console.log(`✗ ${modelName} failed, trying next model...`);
           break;
         } else {
-          // Last model, last retry - throw user-friendly error
-          console.error("Gemini API error:", error);
-
-          // Check if it's a network error
           if (
             error instanceof Error &&
             (error.message.includes("fetch") ||
@@ -218,7 +191,6 @@ IMPORTANT - Off-topic Questions:
             throw new Error(ERROR_MESSAGES.network);
           }
 
-          // Use existing error message if it's already user-friendly
           if (
             error instanceof Error &&
             Object.values(ERROR_MESSAGES).includes(error.message)
@@ -226,14 +198,12 @@ IMPORTANT - Off-topic Questions:
             throw error;
           }
 
-          // Default user-friendly message
           throw new Error(ERROR_MESSAGES.default);
         }
       }
     }
   }
 
-  // If we get here, all models failed
   throw new Error(ERROR_MESSAGES.default);
 };
 
