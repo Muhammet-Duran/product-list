@@ -1,4 +1,4 @@
-@import "../styles/variables.scss";
+@import "../../styles/variables.scss";
 
 /* Chat Widget Container */
 .chat_widget {
@@ -59,7 +59,7 @@
 
 /* Header */
 .chat_header {
-  background: #1a1f36;
+  background: darken($headerColor, 10%);
   color: white;
   padding: 16px;
   display: flex;

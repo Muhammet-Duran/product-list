@@ -1,10 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useChatContext } from "../contexts/ChatContext";
-import { useProductContext } from "../contexts/ProductContext";
-import ChatMessage from "./ChatMessage";
+import { useChatContext } from "../../contexts/ChatContext";
+import { useProductContext } from "../../contexts/ProductContext";
 import styles from "./ChatWidget.module.scss";
+import ChatMessage from "./ChatMessage";
 
-// Extend Window interface for lastGeminiRequest
 declare global {
   interface Window {
     lastGeminiRequest?: number;
@@ -49,6 +48,7 @@ const ChatWidget: React.FC = () => {
 
   const TypingIndicator: React.FC = () => (
     <div className={styles.typing_indicator}>
+      merhaba
       <div className={styles.typing_dots}>
         <span></span>
         <span></span>

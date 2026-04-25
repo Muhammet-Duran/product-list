@@ -6,7 +6,7 @@ import Cart from "./pages/Cart";
 import { ProductContextProvider } from "./contexts/ProductContext";
 import { ChatContextProvider } from "./contexts/ChatContext";
 import Header from "./components/Header/Header";
-import ChatWidget from "./components/ChatWidget";
+import ChatWidget from "./components/Chat/ChatWidget";
 
 const App: React.FC = () => {
   return (
