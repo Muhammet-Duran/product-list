@@ -13,10 +13,17 @@ const askGemini = async (
   cartItems: CartItem[]
 ): Promise<string> => {
   const apiKey = process.env.REACT_APP_GEMINI_API_KEY;
+  const baseUrl = process.env.REACT_APP_GEMINI_BASE_URL;
 
   if (!apiKey) {
     throw new Error(
       "Gemini API key not found. Please set REACT_APP_GEMINI_API_KEY environment variable."
+    );
+  }
+
+  if (!baseUrl) {
+    throw new Error(
+      "Gemini base URL not found. Please set REACT_APP_GEMINI_BASE_URL environment variable."
     );
   }
 
@@ -36,7 +43,8 @@ ${JSON.stringify(cartItems, null, 2)}`;
   systemPrompt += `
 
 Rules:
-- ALWAYS answer in English only
+- YOU MUST RESPOND IN ENGLISH ONLY - NO EXCEPTIONS
+- NEVER use Turkish or any other language - ONLY ENGLISH
 - Keep responses short and friendly, maximum 3-4 sentences
 - Mention prices and features in product recommendations
 - Consider items in the cart
@@ -80,7 +88,7 @@ IMPORTANT - Off-topic Questions:
 
   // Helper: Make API request
   const makeRequest = async (modelName: string): Promise<GeminiApiResult> => {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
+    const url = `${baseUrl}beta/models/${modelName}:generateContent?key=${apiKey}`;
 
     const requestBody: GeminiRequestBody = {
       contents: [
